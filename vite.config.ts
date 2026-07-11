@@ -1016,6 +1016,9 @@ export default defineConfig(({ mode }) => {
             '**/onnx*.wasm',
             '**/locale-*.js',
             '**/clerk-*.js',
+            // Fonts are fetched only when their stylesheet applies. Precache
+            // would pull every local weight into the first mobile visit.
+            '**/*.woff2',
             // Keep off-page/static-heavy public assets out of the dashboard's
             // first-visit precache. The small root favicons above remain
             // explicit includeAssets entries.
@@ -1301,6 +1304,17 @@ export default defineConfig(({ mode }) => {
             // runtime TDZ that crashed the WebGL map into the SVG fallback).
             if (id.endsWith('/src/components/DeckGLMap.ts')) {
               return 'deck-stack';
+            }
+            // Co-locate ResilienceWidget with its only runtime importer
+            // (CountryDeepDivePanel, panels-intel). As a standalone chunk its
+            // import() was a second network hop on every deep-dive open, and
+            // filtering middleboxes that stub the *Widget*-named chunk URL with
+            // an empty 200 made the import resolve WITHOUT the export
+            // (Sentry WORLDMONITOR-T6). In-chunk resolution removes that
+            // surface and the waterfall hop; shared deps (resilience-widget-
+            // utils, services/resilience) already live in shared chunks.
+            if (id.endsWith('/src/components/ResilienceWidget.ts')) {
+              return 'panels-intel';
             }
             if (id.includes('/src/components/') && id.endsWith('.ts')) {
               const panelChunk = panelChunkForComponentId(id);

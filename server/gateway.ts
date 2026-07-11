@@ -405,6 +405,7 @@ export const PUBLIC_NO_AUTH_RPC_PATHS = new Set<string>([
 export const RELAY_WARM_PING_PATHS = new Set<string>([
   '/api/infrastructure/v1/list-service-statuses',
   '/api/infrastructure/v1/get-cable-health',
+  '/api/infrastructure/v1/list-temporal-anomalies',
   '/api/intelligence/v1/get-risk-scores',
   '/api/supply-chain/v1/get-chokepoint-status',
 ]);
@@ -1470,7 +1471,7 @@ export function createDomainGateway(
                 headers: {
                   'Content-Type': 'application/json',
                   'Cache-Control': 'no-store',
-                  ...rateLimitHeaders({ limit: burst.limit, remaining: 0, resetMs: burst.reset, retryAfterSec }),
+                  ...rateLimitHeaders({ limit: burst.limit, remaining: 0, resetMs: burst.reset, retryAfterSec, windowSec: 60 }),
                   ...corsHeaders,
                 },
               });
@@ -1497,6 +1498,8 @@ export function createDomainGateway(
                       remaining: 0,
                       resetMs: Date.now() + meter.retryAfterSec * 1000,
                       retryAfterSec: meter.retryAfterSec,
+                      // Daily ceiling window (24 h) for the advertised policy.
+                      windowSec: 86_400,
                     }),
                     ...corsHeaders,
                   },
