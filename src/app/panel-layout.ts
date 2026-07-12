@@ -71,6 +71,21 @@ import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 import { loadPanelCollapsed, loadPanelColSpans, loadPanelSpans } from '@/utils/panel-storage';
 import { measure, mutate } from '@/utils/layout-batch';
 
+function readSessionStorageValue(key: string): string | null {
+  try {
+    return window.sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeSessionStorageValue(key: string, value: string): void {
+  try {
+    window.sessionStorage.setItem(key, value);
+  } catch {
+    // Banner dismissal remains functional for this render even without persistence.
+  }
+}
 
 /**
  * Panels that require premium access on web. Auth-based gating applies to
@@ -499,7 +514,12 @@ export class PanelLayoutManager implements AppModule {
         mode: 'create',
         tier: 'pro',
         initialMessage: e.detail.initialMessage,
-        onComplete: (spec) => this.addCustomWidget(spec),
+        onComplete: (spec) => {
+          void this.addCustomWidget(spec).catch((error) => {
+            console.error('[widget-builder] failed to add widget', error);
+            showToast(t('widgets.saveFailed'));
+          });
+        },
       })).catch((err) => console.error('[widget-chat] failed to lazy-load WidgetChatModal', err));
     }) as EventListener;
     this.ctx.container.addEventListener('wm:open-widget-creator', this.boundWidgetCreatorHandler);
@@ -1217,7 +1237,7 @@ export class PanelLayoutManager implements AppModule {
   }
 
   renderCriticalBanner(postures: TheaterPostureSummary[]): void {
-    const dismissedAt = sessionStorage.getItem('banner-dismissed');
+    const dismissedAt = readSessionStorageValue('banner-dismissed');
     if (dismissedAt && Date.now() - parseInt(dismissedAt, 10) < 30 * 60 * 1000) {
       return;
     }
@@ -1273,7 +1293,7 @@ export class PanelLayoutManager implements AppModule {
       trackCriticalBannerAction('dismiss', top.theaterId);
       this.criticalBannerEl?.classList.add('dismissed');
       document.body.classList.remove('has-critical-banner');
-      sessionStorage.setItem('banner-dismissed', Date.now().toString());
+      writeSessionStorageValue('banner-dismissed', Date.now().toString());
     });
   }
 
@@ -2303,7 +2323,12 @@ export class PanelLayoutManager implements AppModule {
       void import('@/components/WidgetChatModal').then((m) => m.openWidgetChatModal({
         mode: 'create',
         tier: 'pro',
-        onComplete: (spec) => this.addCustomWidget(spec),
+        onComplete: (spec) => {
+          void this.addCustomWidget(spec).catch((error) => {
+            console.error('[widget-builder] failed to add widget', error);
+            showToast(t('widgets.saveFailed'));
+          });
+        },
       })).catch((err) => console.error('[widget-chat] failed to lazy-load WidgetChatModal', err));
     });
     panelsGrid.appendChild(proBlock);
@@ -2576,8 +2601,8 @@ export class PanelLayoutManager implements AppModule {
     this.applyPanelSettings();
   }
 
-  addCustomWidget(spec: CustomWidgetSpec): void {
-    saveWidget(spec);
+  async addCustomWidget(spec: CustomWidgetSpec): Promise<void> {
+    await saveWidget(spec);
     this.ctx.panelSettings[spec.id] = { name: spec.title, enabled: true, priority: 3 };
     saveToStorage(STORAGE_KEYS.panels, this.ctx.panelSettings);
     void this.importPanel(
@@ -2677,8 +2702,8 @@ export class PanelLayoutManager implements AppModule {
 
     const allOrder = this.buildUnifiedOrder(sidebarIds, bottomIds);
     this.resolvedPanelOrder = allOrder;
-    localStorage.setItem(this.ctx.PANEL_ORDER_KEY, JSON.stringify(allOrder));
-    localStorage.setItem(this.ctx.PANEL_ORDER_KEY + '-bottom-set', JSON.stringify(Array.from(this.bottomSetMemory)));
+    saveToStorage(this.ctx.PANEL_ORDER_KEY, allOrder);
+    saveToStorage(this.ctx.PANEL_ORDER_KEY + '-bottom-set', Array.from(this.bottomSetMemory));
   }
 
   private buildUnifiedOrder(sidebarIds: string[], bottomIds: string[]): string[] {
