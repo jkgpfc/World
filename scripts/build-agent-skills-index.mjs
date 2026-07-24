@@ -64,6 +64,7 @@ const INSTRUCTIONS = [
   '- Use `track-climate-hazards` when the user asks about floods, cyclones, droughts, heatwaves, wildfires, climate anomalies, or climate disruption headlines.',
   '- Use `monitor-health-alerts` when the user asks about disease outbreaks or PM2.5 air-quality health warnings.',
   '- Use `check-forecast-signals` when the user asks what World Monitor is forecasting, how probabilities shifted, or how calibrated the forecasts are.',
+  '- Use `Iran.skill` when the user asks for deep geopolitical analysis, 2,500-year historical patterns, or analyst/decision-maker predictions for the Iran crisis.',
   '',
   'Beyond these skills the MCP server exposes a broad catalog of tools — displacement, natural disasters, research, imagery, and more. Use them together to check whether a live event (a conflict, sanction, climate hazard, or chokepoint disruption) has a plausible market, health, energy, or supply-chain transmission path.',
   '',
@@ -107,9 +108,8 @@ function collectSkills() {
       throw new Error(`Expected ${skillPath} to exist and be a file`);
     }
     const bytes = readFileSync(skillPath);
-    const md = bytes.toString('utf-8');
-    const lfMd = md.replace(/\r\n/g, '\n');
-    const fm = parseFrontmatter(lfMd);
+    const md = bytes.toString('utf-8').replace(/\r\n/g, '\n');
+    const fm = parseFrontmatter(md);
     if (!fm.description) {
       throw new Error(`${skillPath} missing "description" in frontmatter`);
     }
@@ -125,7 +125,7 @@ function collectSkills() {
       type: 'skill-md',
       description: fm.description,
       url: `${PUBLIC_BASE}/.well-known/agent-skills/${name}/SKILL.md`,
-      digest: `sha256:${sha256Hex(bytes)}`,
+      digest: `sha256:${sha256Hex(md)}`,
     };
   });
 }
@@ -157,7 +157,6 @@ function main() {
   process.stdout.write(`Wrote ${INDEX_PATH}\n`);
 }
 
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
-if (isMain) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   main();
 }
