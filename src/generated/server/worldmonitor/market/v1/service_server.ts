@@ -232,6 +232,8 @@ export interface AnalyzeStockResponse {
   extendedPrice?: number;
   extendedChangePercent?: number;
   fundamentals?: Fundamentals;
+  fundamentalScore?: number;
+  compositeScore: number;
 }
 
 export interface StockAnalysisHeadline {
