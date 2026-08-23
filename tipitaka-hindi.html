@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>त्रिपिटक विकि — मुख्य पृष्ठ</title>
+<style>
+  :root{
+    --wiki-bg:#f4f1e8;
+    --panel:#ffffff;
+    --border:#c9c2ac;
+    --accent:#7a5c1e;
+    --accent-2:#a8791f;
+    --link:#0645ad;
+    --link-visited:#663366;
+    --header:#3a2f14;
+    --muted:#6b6350;
+    --band:#efe7cf;
+    --band2:#e6dcbf;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Noto Sans Devanagari","Nirmala UI","Segoe UI",system-ui,sans-serif;
+    background:var(--wiki-bg);
+    color:#1f1a0e;
+    line-height:1.65;
+    font-size:16px;
+  }
+  a{color:var(--link);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:visited{color:var(--link-visited);}
+
+  /* ---- Top bar ---- */
+  .topbar{
+    background:linear-gradient(180deg,#4a3a17,#3a2f14);
+    color:#f6efdc;
+    border-bottom:3px solid var(--accent-2);
+  }
+  .topbar-inner{
+    max-width:1180px;margin:0 auto;padding:10px 18px;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo .mark{
+    width:46px;height:46px;border-radius:50%;
+    background:radial-gradient(circle at 50% 40%,#f2d98a,#b98a2a);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;box-shadow:0 0 0 3px #2c2410;
+  }
+  .logo .title{line-height:1.1;}
+  .logo .title b{font-size:22px;color:#fff;display:block;letter-spacing:.5px;}
+  .logo .title span{font-size:12.5px;color:#e4d3a0;}
+  .topsearch{margin-left:auto;display:flex;gap:6px;}
+  .topsearch input{
+    padding:7px 12px;border:1px solid #5c4a22;border-radius:4px 0 0 4px;
+    min-width:210px;font-size:14px;background:#fbf7ec;color:#1f1a0e;
+  }
+  .topsearch button{
+    padding:7px 14px;border:1px solid #5c4a22;border-left:none;
+    background:var(--accent-2);color:#fff;border-radius:0 4px 4px 0;
+    cursor:pointer;font-size:14px;
+  }
+  .topsearch button:hover{background:#c08b26;}
+
+  /* ---- Nav ---- */
+  .mainnav{background:#efe7cf;border-bottom:1px solid var(--border);}
+  .mainnav ul{
+    max-width:1180px;margin:0 auto;padding:0 18px;
+    display:flex;gap:4px;list-style:none;flex-wrap:wrap;
+  }
+  .mainnav a{
+    display:block;padding:9px 14px;color:var(--header);font-weight:600;
+    font-size:14.5px;border-bottom:3px solid transparent;
+  }
+  .mainnav a:hover{background:#e2d6b0;text-decoration:none;border-bottom-color:var(--accent-2);}
+
+  /* ---- Layout ---- */
+  .wrap{max-width:1180px;margin:0 auto;padding:20px 18px 40px;
+    display:grid;grid-template-columns:1fr 320px;gap:22px;}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:6px;margin-bottom:20px;overflow:hidden;
+  }
+  .card h2{
+    margin:0;padding:11px 16px;font-size:18px;color:#fff;
+    background:linear-gradient(180deg,var(--accent-2),var(--accent));
+    display:flex;align-items:center;gap:9px;
+  }
+  .card .body{padding:16px;}
+
+  /* ---- Hero / welcome ---- */
+  .hero{
+    background:linear-gradient(135deg,#5b4a20,#8a6a24);
+    color:#fdf8ea;border:1px solid var(--accent);border-radius:6px;
+    padding:26px 24px;margin-bottom:20px;text-align:center;
+  }
+  .hero h1{margin:0 0 8px;font-size:30px;color:#fff;}
+  .hero p{margin:6px auto 0;max-width:720px;font-size:15.5px;color:#f0e6cc;}
+  .hero .stats{
+    display:flex;justify-content:center;gap:26px;flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .hero .stats div{text-align:center;}
+  .hero .stats b{display:block;font-size:22px;color:#ffe9b0;}
+  .hero .stats small{font-size:12.5px;color:#e5d6ab;}
+
+  /* ---- Pitaka grid ---- */
+  .pitakas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:640px){.pitakas{grid-template-columns:1fr;}}
+  .pitaka{
+    border:1px solid var(--border);border-radius:6px;overflow:hidden;
+    background:var(--band);transition:transform .12s,box-shadow .12s;
+  }
+  .pitaka:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(90,70,20,.22);}
+  .pitaka .top{padding:16px;text-align:center;background:linear-gradient(180deg,#f6eecf,#ece0bb);}
+  .pitaka .icon{font-size:34px;}
+  .pitaka h3{margin:8px 0 2px;font-size:17px;color:var(--header);}
+  .pitaka .pali{font-size:12.5px;color:var(--muted);font-style:italic;}
+  .pitaka .top-inner{padding:12px 14px;font-size:13.8px;}
+  .pitaka .top-inner ul{margin:8px 0 0;padding-left:18px;}
+  .pitaka .top-inner li{margin:3px 0;}
+
+  /* ---- Featured ---- */
+  .featured{display:flex;gap:14px;}
+  .featured .thumb{
+    flex:0 0 120px;height:120px;border-radius:6px;
+    background:radial-gradient(circle at 50% 35%,#f4dd9c,#b48a2c);
+    display:flex;align-items:center;justify-content:center;font-size:52px;
+    border:1px solid var(--border);
+  }
+  .featured p{margin:0 0 8px;font-size:14.5px;}
+  @media(max-width:520px){.featured{flex-direction:column;}.featured .thumb{width:100%;flex-basis:auto;}}
+
+  /* ---- Sidebar ---- */
+  .side .card h2{font-size:16px;}
+  .did-you-know li{margin-bottom:9px;font-size:14px;}
+  .community-list{list-style:none;margin:0;padding:0;}
+  .community-list li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px;display:flex;gap:8px;}
+  .community-list li:last-child{border-bottom:none;}
+  .community-list .em{font-size:18px;}
+
+  .quote{
+    background:var(--band);border-left:4px solid var(--accent-2);
+    padding:12px 14px;font-style:italic;font-size:14.5px;color:#40371f;
+    border-radius:0 6px 6px 0;
+  }
+  .quote .src{display:block;margin-top:6px;font-style:normal;font-size:12.5px;color:var(--muted);}
+
+  .taglist{display:flex;flex-wrap:wrap;gap:6px;}
+  .taglist a{
+    background:var(--band2);border:1px solid var(--border);
+    padding:4px 10px;border-radius:14px;font-size:13px;color:var(--header);
+  }
+  .taglist a:hover{background:var(--accent-2);color:#fff;text-decoration:none;}
+
+  /* ---- Footer ---- */
+  footer{
+    background:#3a2f14;color:#e5d6ab;margin-top:10px;
+    border-top:3px solid var(--accent-2);
+  }
+  .footer-inner{
+    max-width:1180px;margin:0 auto;padding:24px 18px;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:13.5px;
+  }
+  .footer-inner a{color:#f2d98a;}
+  .footer-inner h4{margin:0 0 8px;color:#fff;font-size:14px;}
+  .footer-inner ul{list-style:none;margin:0;padding:0;}
+  .footer-inner li{margin:4px 0;}
+  .foot-note{background:#2c2410;color:#b8ac86;text-align:center;padding:10px;font-size:12px;}
+
+  .section-note{font-size:12.5px;color:var(--muted);margin-top:10px;}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <div class="mark">☸️</div>
+      <div class="title">
+        <b>त्रिपिटक विकि</b>
+        <span>पालि बौद्ध धर्मग्रन्थों का मुक्त ज्ञानकोश</span>
+      </div>
+    </div>
+    <form class="topsearch" onsubmit="return doSearch(event)">
+      <input id="q" type="search" placeholder="विकि में खोजें…" aria-label="खोज">
+      <button type="submit">खोजें</button>
+    </form>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="mainnav">
+  <ul>
+    <li><a href="#mukhya">मुख्य पृष्ठ</a></li>
+    <li><a href="#vinaya">विनय पिटक</a></li>
+    <li><a href="#sutta">सुत्त पिटक</a></li>
+    <li><a href="#abhidhamma">अभिधम्म पिटक</a></li>
+    <li><a href="#vishesh">विशेष लेख</a></li>
+    <li><a href="#samuday">समुदाय</a></li>
+    <li><a href="#yogdan">योगदान करें</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <!-- Main column -->
+  <main>
+    <section class="hero" id="mukhya">
+      <h1>त्रिपिटक विकि में आपका स्वागत है</h1>
+      <p>यह थेरवाद बौद्ध परम्परा के पालि सिद्धान्त — <b>त्रिपिटक</b> ("तीन पिटारियाँ") — को समर्पित एक सहयोगात्मक ज्ञानकोश है। यहाँ विनय, सुत्त और अभिधम्म पिटकों के ग्रन्थ, अनुवाद, टीकाएँ और शब्दावली संकलित हैं।</p>
+      <div class="stats">
+        <div><b id="stat-articles">1,842</b><small>लेख</small></div>
+        <div><b>3</b><small>पिटक</small></div>
+        <div><b>84,000</b><small>धर्मस्कन्ध</small></div>
+        <div><b id="stat-editors">126</b><small>सम्पादक</small></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📜 त्रिपिटक की तीन पिटारियाँ</h2>
+      <div class="body">
+        <div class="pitakas">
+          <div class="pitaka" id="vinaya">
+            <div class="top">
+              <div class="icon">⚖️</div>
+              <h3>विनय पिटक</h3>
+              <div class="pali">Vinaya Piṭaka</div>
+            </div>
+            <div class="top-inner">
+              भिक्षु-भिक्षुणी संघ के आचार-नियम और अनुशासन का संग्रह।
+              <ul>
+                <li><a href="#">सुत्तविभंग</a></li>
+                <li><a href="#">खन्धक (महावग्ग · चुल्लवग्ग)</a></li>
+                <li><a href="#">परिवार</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pitaka">
+            <div class="top">
+              <div class="icon">🪷</div>
+              <h3>सुत्त पिटक</h3>
+              <div class="pali">Sutta Piṭaka</div>
+            </div>
+            <div class="top-inner">
+              बुद्ध और उनके शिष्यों के प्रवचनों का संग्रह, पाँच निकायों में।
+              <ul>
+                <li><a href="#">दीघ निकाय</a></li>
+                <li><a href="#">मज्झिम निकाय</a></li>
+                <li><a href="#">संयुत्त निकाय</a></li>
+                <li><a href="#">अंगुत्तर निकाय</a></li>
+                <li><a href="#">खुद्दक निकाय</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pitaka" id="abhidhamma">
+            <div class="top">
+              <div class="icon">🧠</div>
+              <h3>अभिधम्म पिटक</h3>
+              <div class="pali">Abhidhamma Piṭaka</div>
+            </div>
+            <div class="top-inner">
+              मन, चैतसिक और परमार्थ धर्मों का व्यवस्थित दार्शनिक विश्लेषण।
+              <ul>
+                <li><a href="#">धम्मसंगणि</a></li>
+                <li><a href="#">विभंग</a></li>
+                <li><a href="#">कथावत्थु</a></li>
+                <li><a href="#">पट्ठान</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="section-note">पालि शब्द "पिटक" का अर्थ है "पिटारी" या "टोकरी"। तीनों पिटारियाँ मिलकर <em>ति-पिटक</em> (त्रिपिटक) कहलाती हैं।</p>
+      </div>
+    </section>
+
+    <section class="card" id="vishesh">
+      <h2>⭐ विशेष लेख</h2>
+      <div class="body">
+        <div class="featured">
+          <div class="thumb">🪷</div>
+          <div>
+            <h3 style="margin:0 0 6px;color:var(--header);">धम्मचक्कप्पवत्तन सुत्त</h3>
+            <p><b>धम्मचक्कप्पवत्तन सुत्त</b> ("धर्मचक्र प्रवर्तन सूत्र") बुद्ध का पहला उपदेश माना जाता है, जो उन्होंने सारनाथ के मृगदाव में पाँच भिक्षुओं को दिया। इसमें <b>चार आर्य सत्य</b> और <b>मध्यम मार्ग</b> की शिक्षा दी गई है। यह सुत्त संयुत्त निकाय के सच्चसंयुत्त में संकलित है।</p>
+            <a href="#">पूरा लेख पढ़ें →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="sutta">
+      <h2>🗓️ आज का विचार</h2>
+      <div class="body">
+        <div class="quote">
+          "मन सभी धर्मों का अग्रगामी है, मन ही प्रधान है, सब कुछ मन से ही निर्मित होता है।"
+          <span class="src">— धम्मपद, यमक वग्ग (श्लोक १)</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📚 विषय के अनुसार खोजें</h2>
+      <div class="body">
+        <div class="taglist">
+          <a href="#">चार आर्य सत्य</a>
+          <a href="#">आर्य अष्टांगिक मार्ग</a>
+          <a href="#">प्रतीत्यसमुत्पाद</a>
+          <a href="#">पंचस्कन्ध</a>
+          <a href="#">जातक कथाएँ</a>
+          <a href="#">धम्मपद</a>
+          <a href="#">विपश्यना</a>
+          <a href="#">निर्वाण</a>
+          <a href="#">पारमिता</a>
+          <a href="#">बोधिपक्खिय धम्म</a>
+          <a href="#">संघ के नियम</a>
+          <a href="#">पालि व्याकरण</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="side">
+    <section class="card" id="samuday">
+      <h2>🌱 समुदाय</h2>
+      <div class="body">
+        <ul class="community-list">
+          <li><span class="em">📝</span><a href="#">हाल में हुए बदलाव</a></li>
+          <li><span class="em">🎲</span><a href="#" onclick="return randomPage(event)">यादृच्छिक लेख</a></li>
+          <li><span class="em">📋</span><a href="#">शैली मार्गदर्शिका</a></li>
+          <li><span class="em">💬</span><a href="#">चर्चा मंच</a></li>
+          <li><span class="em">❓</span><a href="#">सहायता</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" id="yogdan">
+      <h2>💡 क्या आप जानते हैं?</h2>
+      <div class="body">
+        <ul class="did-you-know">
+          <li>…कि <b>त्रिपिटक</b> मूल रूप से मौखिक परम्परा में कण्ठस्थ रखा जाता था, और पहली बार श्रीलंका में <b>अलुविहार</b> में लगभग पहली शताब्दी ईसा पूर्व लिखा गया?</li>
+          <li>…कि <b>खुद्दक निकाय</b> में <b>धम्मपद</b>, <b>जातक</b> और <b>सुत्तनिपात</b> जैसे लोकप्रिय ग्रन्थ शामिल हैं?</li>
+          <li>…कि <b>अभिधम्म</b> के <b>पट्ठान</b> ग्रन्थ में २४ प्रकार के सम्बन्धों (पच्चय) का वर्णन है?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🔗 सम्बन्धित</h2>
+      <div class="body">
+        <ul class="community-list">
+          <li><span class="em">🏛️</span><a href="#">थेरवाद परम्परा</a></li>
+          <li><span class="em">🗣️</span><a href="#">पालि भाषा</a></li>
+          <li><span class="em">📖</span><a href="#">अट्ठकथा (टीकाएँ)</a></li>
+          <li><span class="em">🧘</span><a href="#">ध्यान और साधना</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📊 आँकड़े</h2>
+      <div class="body" style="font-size:14px;">
+        <p style="margin:4px 0;">कुल पृष्ठ: <b id="stat-pages">3,204</b></p>
+        <p style="margin:4px 0;">सम्पादन: <b>21,559</b></p>
+        <p style="margin:4px 0;">चित्र: <b>412</b></p>
+        <p style="margin:4px 0;">सक्रिय सदस्य: <b id="stat-active">37</b></p>
+      </div>
+    </section>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="max-width:320px;">
+      <h4>☸️ त्रिपिटक विकि</h4>
+      <p>पालि बौद्ध धर्मग्रन्थों को समर्पित एक स्वयंसेवी ज्ञानकोश। सामग्री समुदाय द्वारा योगदान की गई है।</p>
+    </div>
+    <div>
+      <h4>अन्वेषण</h4>
+      <ul>
+        <li><a href="#vinaya">विनय पिटक</a></li>
+        <li><a href="#sutta">सुत्त पिटक</a></li>
+        <li><a href="#abhidhamma">अभिधम्म पिटक</a></li>
+        <li><a href="#vishesh">विशेष लेख</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>समुदाय</h4>
+      <ul>
+        <li><a href="#">योगदान की नीति</a></li>
+        <li><a href="#">शैली मार्गदर्शिका</a></li>
+        <li><a href="#">चर्चा मंच</a></li>
+        <li><a href="#">सहायता केंद्र</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">यह एक शैक्षिक डेमो पृष्ठ है — मूल फैंडम विकि से स्वतंत्र। सामग्री केवल प्रदर्शन हेतु है।</div>
+</footer>
+
+<script>
+  function doSearch(e){
+    e.preventDefault();
+    var q=document.getElementById('q').value.trim();
+    if(!q){return false;}
+    alert('"'+q+'" के लिए खोज परिणाम इस डेमो में उपलब्ध नहीं हैं।\n\nपूर्ण विकि में यह खोज संगत लेखों की सूची दिखाती।');
+    return false;
+  }
+  function randomPage(e){
+    e.preventDefault();
+    var pages=['धम्मपद','मंगल सुत्त','सतिपट्ठान सुत्त','करणीयमेत्त सुत्त','अनत्तलक्खण सुत्त','महापरिनिब्बान सुत्त','जातक कथाएँ','विसुद्धिमग्ग'];
+    var p=pages[Math.floor(Math.random()*pages.length)];
+    alert('यादृच्छिक लेख: '+p+'\n\n(डेमो — वास्तविक पृष्ठ उपलब्ध नहीं है)');
+    return false;
+  }
+  // हल्की-सी जीवंतता: आँकड़े थोड़ा बढ़ते हैं
+  (function(){
+    var a=document.getElementById('stat-active');
+    setInterval(function(){
+      var n=parseInt(a.textContent,10);
+      a.textContent = Math.max(30, n + (Math.random()<0.5?-1:1));
+    },4000);
+  })();
+</script>
+</body>
+</html>
