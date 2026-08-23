@@ -6,73 +6,45 @@
 <title>त्रिपिटक विकि — मुख्य पृष्ठ</title>
 <style>
   :root{
-    --wiki-bg:#f4f1e8;
-    --panel:#ffffff;
-    --border:#c9c2ac;
-    --accent:#7a5c1e;
-    --accent-2:#a8791f;
-    --link:#0645ad;
-    --link-visited:#663366;
-    --header:#3a2f14;
-    --muted:#6b6350;
-    --band:#efe7cf;
-    --band2:#e6dcbf;
+    --wiki-bg:#f4f1e8;--panel:#ffffff;--border:#c9c2ac;--accent:#7a5c1e;--accent-2:#a8791f;
+    --link:#0645ad;--header:#3a2f14;--muted:#6b6350;--band:#efe7cf;--band2:#e6dcbf;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:"Noto Sans Devanagari","Nirmala UI","Segoe UI",system-ui,sans-serif;
-    background:var(--wiki-bg);
-    color:#1f1a0e;
-    line-height:1.65;
-    font-size:16px;
-  }
+  body{margin:0;font-family:"Noto Sans Devanagari","Nirmala UI","Segoe UI",system-ui,sans-serif;background:var(--wiki-bg);color:#1f1a0e;line-height:1.65;font-size:16px;}
   a{color:var(--link);text-decoration:none;cursor:pointer;}
   a:hover{text-decoration:underline;}
 
-  /* ---- Top bar ---- */
   .topbar{background:linear-gradient(180deg,#4a3a17,#3a2f14);color:#f6efdc;border-bottom:3px solid var(--accent-2);}
   .topbar-inner{max-width:1180px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .logo{display:flex;align-items:center;gap:12px;cursor:pointer;}
   .logo .mark{width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#f2d98a,#b98a2a);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 0 0 3px #2c2410;}
-  .logo .title{line-height:1.1;}
   .logo .title b{font-size:22px;color:#fff;display:block;letter-spacing:.5px;}
   .logo .title span{font-size:12.5px;color:#e4d3a0;}
-  .topsearch{margin-left:auto;display:flex;gap:6px;position:relative;}
-  .topsearch input{padding:7px 12px;border:1px solid #5c4a22;border-radius:4px 0 0 4px;min-width:210px;font-size:14px;background:#fbf7ec;color:#1f1a0e;}
+  .topsearch{margin-left:auto;display:flex;gap:6px;}
+  .topsearch input{padding:7px 12px;border:1px solid #5c4a22;border-radius:4px 0 0 4px;min-width:200px;font-size:14px;background:#fbf7ec;color:#1f1a0e;}
   .topsearch button{padding:7px 14px;border:1px solid #5c4a22;border-left:none;background:var(--accent-2);color:#fff;border-radius:0 4px 4px 0;cursor:pointer;font-size:14px;}
   .topsearch button:hover{background:#c08b26;}
 
-  /* ---- Nav ---- */
   .mainnav{background:#efe7cf;border-bottom:1px solid var(--border);}
   .mainnav ul{max-width:1180px;margin:0 auto;padding:0 18px;display:flex;gap:4px;list-style:none;flex-wrap:wrap;}
   .mainnav a{display:block;padding:9px 14px;color:var(--header);font-weight:600;font-size:14.5px;border-bottom:3px solid transparent;}
-  .mainnav a:hover{background:#e2d6b0;text-decoration:none;border-bottom-color:var(--accent-2);}
-  .mainnav a.active{border-bottom-color:var(--accent-2);background:#e2d6b0;}
+  .mainnav a:hover,.mainnav a.active{background:#e2d6b0;text-decoration:none;border-bottom-color:var(--accent-2);}
 
-  /* ---- Layout ---- */
   .wrap{max-width:1180px;margin:0 auto;padding:20px 18px 40px;display:grid;grid-template-columns:1fr 320px;gap:22px;}
   @media(max-width:900px){.wrap{grid-template-columns:1fr;}}
-
   .card{background:var(--panel);border:1px solid var(--border);border-radius:6px;margin-bottom:20px;overflow:hidden;}
   .card h2{margin:0;padding:11px 16px;font-size:18px;color:#fff;background:linear-gradient(180deg,var(--accent-2),var(--accent));display:flex;align-items:center;gap:9px;}
   .card .body{padding:16px;}
-
-  /* ---- breadcrumb ---- */
   .crumb{font-size:13.5px;color:var(--muted);margin-bottom:14px;}
-  .crumb a{color:var(--link);}
 
-  /* ---- Hero / welcome ---- */
   .hero{background:linear-gradient(135deg,#5b4a20,#8a6a24);color:#fdf8ea;border:1px solid var(--accent);border-radius:6px;padding:26px 24px;margin-bottom:20px;text-align:center;}
   .hero h1{margin:0 0 8px;font-size:30px;color:#fff;}
-  .hero p{margin:6px auto 0;max-width:720px;font-size:15.5px;color:#f0e6cc;}
+  .hero p{margin:6px auto 0;max-width:760px;font-size:15.5px;color:#f0e6cc;}
   .hero .stats{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:18px;}
-  .hero .stats div{text-align:center;}
   .hero .stats b{display:block;font-size:22px;color:#ffe9b0;}
   .hero .stats small{font-size:12.5px;color:#e5d6ab;}
 
-  /* ---- Pitaka grid ---- */
   .pitakas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   @media(max-width:640px){.pitakas{grid-template-columns:1fr;}}
   .pitaka{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--band);transition:transform .12s,box-shadow .12s;}
@@ -85,46 +57,45 @@
   .pitaka .top-inner ul{margin:8px 0 0;padding-left:18px;}
   .pitaka .top-inner li{margin:3px 0;}
 
-  /* ---- Featured ---- */
   .featured{display:flex;gap:14px;}
-  .featured .thumb{flex:0 0 120px;height:120px;border-radius:6px;background:radial-gradient(circle at 50% 35%,#f4dd9c,#b48a2c);display:flex;align-items:center;justify-content:center;font-size:52px;border:1px solid var(--border);}
+  .featured .thumb{flex:0 0 120px;height:120px;border-radius:6px;background:radial-gradient(circle at 50% 35%,#f4dd9c,#b48a2c);display:flex;align-items:center;justify-content:center;font-size:52px;border:1px solid var(--border);cursor:pointer;}
   .featured p{margin:0 0 8px;font-size:14.5px;}
   @media(max-width:520px){.featured{flex-direction:column;}.featured .thumb{width:100%;flex-basis:auto;}}
 
-  /* ---- Article view ---- */
-  .article h1.at{margin:0 0 2px;font-size:27px;color:var(--header);border-bottom:2px solid var(--accent-2);padding-bottom:8px;}
+  .article h1.at{margin:0 0 2px;font-size:26px;color:var(--header);border-bottom:2px solid var(--accent-2);padding-bottom:8px;}
   .article .pali-sub{color:var(--muted);font-style:italic;margin:0 0 14px;font-size:14px;}
-  .article h3{color:var(--header);border-bottom:1px solid var(--border);padding-bottom:4px;margin-top:22px;font-size:19px;}
-  .article p{font-size:15.5px;}
-  .article ul{font-size:15px;}
+  .article h3{color:var(--header);border-bottom:1px solid var(--border);padding-bottom:4px;margin-top:22px;font-size:18px;}
+  .article p,.article li{font-size:15.3px;}
   .article .infobox{float:right;width:250px;margin:0 0 14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--band);font-size:13.5px;overflow:hidden;}
   .article .infobox .ib-h{background:var(--accent);color:#fff;padding:8px 12px;font-weight:700;text-align:center;}
   .article .infobox table{width:100%;border-collapse:collapse;}
   .article .infobox td{padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:top;}
-  .article .infobox td:first-child{color:var(--muted);width:40%;}
+  .article .infobox td:first-child{color:var(--muted);width:42%;}
   @media(max-width:560px){.article .infobox{float:none;width:100%;margin:0 0 16px;}}
+  .seealso{margin-top:22px;background:var(--band);border-radius:6px;padding:10px 14px;font-size:14px;}
+  .seealso b{color:var(--header);}
 
-  /* ---- Sidebar ---- */
   .side .card h2{font-size:16px;}
   .did-you-know li{margin-bottom:9px;font-size:14px;}
   .community-list{list-style:none;margin:0;padding:0;}
   .community-list li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px;display:flex;gap:8px;}
   .community-list li:last-child{border-bottom:none;}
   .community-list .em{font-size:18px;}
-
   .quote{background:var(--band);border-left:4px solid var(--accent-2);padding:12px 14px;font-style:italic;font-size:14.5px;color:#40371f;border-radius:0 6px 6px 0;}
   .quote .src{display:block;margin-top:6px;font-style:normal;font-size:12.5px;color:var(--muted);}
-
   .taglist{display:flex;flex-wrap:wrap;gap:6px;}
   .taglist a{background:var(--band2);border:1px solid var(--border);padding:4px 10px;border-radius:14px;font-size:13px;color:var(--header);}
   .taglist a:hover{background:var(--accent-2);color:#fff;text-decoration:none;}
 
-  /* ---- search results ---- */
+  .index-cat{margin-bottom:18px;}
+  .index-cat h3{color:var(--header);border-bottom:1px solid var(--border);padding-bottom:4px;font-size:17px;margin:0 0 8px;}
+  .index-cat .links{display:flex;flex-wrap:wrap;gap:6px 14px;}
+  .index-cat .links a{font-size:14.5px;}
   .results li{margin-bottom:10px;font-size:15px;}
   .results .snippet{color:var(--muted);font-size:13.5px;}
   .no-res{color:var(--muted);}
+  .backlink{display:inline-block;margin-top:20px;font-size:14px;}
 
-  /* ---- Footer ---- */
   footer{background:#3a2f14;color:#e5d6ab;margin-top:10px;border-top:3px solid var(--accent-2);}
   .footer-inner{max-width:1180px;margin:0 auto;padding:24px 18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;}
   .footer-inner a{color:#f2d98a;}
@@ -133,7 +104,6 @@
   .footer-inner li{margin:4px 0;}
   .foot-note{background:#2c2410;color:#b8ac86;text-align:center;padding:10px;font-size:12px;}
   .section-note{font-size:12.5px;color:var(--muted);margin-top:10px;}
-  .backlink{display:inline-block;margin-top:20px;font-size:14px;}
 </style>
 </head>
 <body>
@@ -142,10 +112,7 @@
   <div class="topbar-inner">
     <div class="logo" onclick="go('home')">
       <div class="mark">☸️</div>
-      <div class="title">
-        <b>त्रिपिटक विकि</b>
-        <span>पालि बौद्ध धर्मग्रन्थों का मुक्त ज्ञानकोश</span>
-      </div>
+      <div class="title"><b>त्रिपिटक विकि</b><span>पालि बौद्ध धर्मग्रन्थों का मुक्त हिन्दी ज्ञानकोश</span></div>
     </div>
     <form class="topsearch" onsubmit="return doSearch(event)">
       <input id="q" type="search" placeholder="विकि में खोजें…" aria-label="खोज">
@@ -160,275 +127,461 @@
     <li><a data-nav="vinaya">विनय पिटक</a></li>
     <li><a data-nav="sutta">सुत्त पिटक</a></li>
     <li><a data-nav="abhidhamma">अभिधम्म पिटक</a></li>
-    <li><a data-nav="dhammacakka">विशेष लेख</a></li>
+    <li><a data-nav="concepts">मूल अवधारणाएँ</a></li>
+    <li><a data-nav="index">सूचकांक (सभी लेख)</a></li>
     <li><a data-nav="samuday">समुदाय</a></li>
   </ul>
 </nav>
 
 <div class="wrap">
-  <main id="content"><!-- rendered by JS --></main>
-
+  <main id="content"></main>
   <aside class="side">
-    <section class="card">
-      <h2>🌱 समुदाय</h2>
-      <div class="body">
-        <ul class="community-list">
-          <li><span class="em">📝</span><a data-nav="recent">हाल में हुए बदलाव</a></li>
-          <li><span class="em">🎲</span><a onclick="randomPage()">यादृच्छिक लेख</a></li>
-          <li><span class="em">📋</span><a data-nav="samuday">शैली मार्गदर्शिका</a></li>
-          <li><span class="em">❓</span><a data-nav="samuday">सहायता</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>💡 क्या आप जानते हैं?</h2>
-      <div class="body">
-        <ul class="did-you-know">
-          <li>…कि <b>त्रिपिटक</b> पहली बार श्रीलंका में <b>अलुविहार</b> में लगभग पहली शताब्दी ईसा पूर्व लिखा गया, इससे पहले यह मौखिक परम्परा में कण्ठस्थ रखा जाता था?</li>
-          <li>…कि <b><a data-nav="khuddaka">खुद्दक निकाय</a></b> में <a data-nav="dhammapada">धम्मपद</a> और जातक जैसे लोकप्रिय ग्रन्थ शामिल हैं?</li>
-          <li>…कि <b><a data-nav="abhidhamma">अभिधम्म</a></b> के पट्ठान में २४ प्रकार के सम्बन्धों (पच्चय) का वर्णन है?</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>🔗 सम्बन्धित</h2>
-      <div class="body">
-        <ul class="community-list">
-          <li><span class="em">🏛️</span><a data-nav="theravada">थेरवाद परम्परा</a></li>
-          <li><span class="em">🗣️</span><a data-nav="pali">पालि भाषा</a></li>
-          <li><span class="em">📖</span><a data-nav="atthakatha">अट्ठकथा (टीकाएँ)</a></li>
-          <li><span class="em">🧘</span><a data-nav="satipatthana">सतिपट्ठान (ध्यान)</a></li>
-        </ul>
-      </div>
-    </section>
+    <section class="card"><h2>🧭 अन्वेषण</h2><div class="body">
+      <ul class="community-list">
+        <li><span class="em">📚</span><a data-nav="index">सभी लेख (सूचकांक)</a></li>
+        <li><span class="em">🎲</span><a onclick="randomPage()">यादृच्छिक लेख</a></li>
+        <li><span class="em">📝</span><a data-nav="recent">हाल के बदलाव</a></li>
+        <li><span class="em">❓</span><a data-nav="samuday">सहायता / योगदान</a></li>
+      </ul>
+    </div></section>
+    <section class="card"><h2>💡 क्या आप जानते हैं?</h2><div class="body">
+      <ul class="did-you-know">
+        <li>…कि <b>त्रिपिटक</b> पहली बार श्रीलंका में <a data-nav="councils">चौथी संगीति</a> के आसपास लिखित रूप में संकलित हुआ, इससे पहले यह मौखिक रूप से कण्ठस्थ था?</li>
+        <li>…कि <a data-nav="khuddaka">खुद्दक निकाय</a> में <a data-nav="dhammapada">धम्मपद</a>, <a data-nav="jataka">जातक</a> और <a data-nav="suttanipata">सुत्तनिपात</a> जैसे लोकप्रिय ग्रन्थ हैं?</li>
+        <li>…कि <a data-nav="patthana">पट्ठान</a> में २४ प्रकार के सम्बन्धों (पच्चय) का विश्लेषण है?</li>
+      </ul>
+    </div></section>
+    <section class="card"><h2>🔗 सम्बन्धित</h2><div class="body">
+      <ul class="community-list">
+        <li><span class="em">🏛️</span><a data-nav="theravada">थेरवाद परम्परा</a></li>
+        <li><span class="em">🗣️</span><a data-nav="pali">पालि भाषा</a></li>
+        <li><span class="em">📖</span><a data-nav="atthakatha">अट्ठकथा (टीकाएँ)</a></li>
+        <li><span class="em">🕉️</span><a data-nav="councils">बौद्ध संगीतियाँ</a></li>
+      </ul>
+    </div></section>
   </aside>
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div style="max-width:320px;">
+    <div style="max-width:340px;">
       <h4>☸️ त्रिपिटक विकि</h4>
-      <p>पालि बौद्ध धर्मग्रन्थों को समर्पित एक स्वयंसेवी ज्ञानकोश। सामग्री समुदाय द्वारा योगदान की गई है।</p>
+      <p>पालि बौद्ध धर्मग्रन्थों को समर्पित एक स्वतंत्र हिन्दी ज्ञानकोश। सभी लेख मौलिक रूप से लिखे गए सारांश हैं।</p>
     </div>
-    <div>
-      <h4>अन्वेषण</h4>
-      <ul>
-        <li><a data-nav="vinaya">विनय पिटक</a></li>
-        <li><a data-nav="sutta">सुत्त पिटक</a></li>
-        <li><a data-nav="abhidhamma">अभिधम्म पिटक</a></li>
-        <li><a data-nav="dhammacakka">विशेष लेख</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>समुदाय</h4>
-      <ul>
-        <li><a data-nav="recent">हाल के बदलाव</a></li>
-        <li><a onclick="randomPage()">यादृच्छिक लेख</a></li>
-        <li><a data-nav="samuday">सहायता केंद्र</a></li>
-      </ul>
-    </div>
+    <div><h4>अन्वेषण</h4><ul>
+      <li><a data-nav="vinaya">विनय पिटक</a></li>
+      <li><a data-nav="sutta">सुत्त पिटक</a></li>
+      <li><a data-nav="abhidhamma">अभिधम्म पिटक</a></li>
+      <li><a data-nav="index">सभी लेख</a></li>
+    </ul></div>
+    <div><h4>जानकारी</h4><ul>
+      <li><a data-nav="about">इस विकि के बारे में</a></li>
+      <li><a data-nav="samuday">योगदान नीति</a></li>
+      <li><a data-nav="recent">हाल के बदलाव</a></li>
+    </ul></div>
   </div>
-  <div class="foot-note">यह एक शैक्षिक डेमो पृष्ठ है — मूल फैंडम विकि से स्वतंत्र। सामग्री केवल प्रदर्शन हेतु है।</div>
+  <div class="foot-note">यह एक स्वतंत्र शैक्षिक परियोजना है — किसी भी फैंडम/वाणिज्यिक विकि से असम्बद्ध। सामग्री मौलिक हिन्दी सारांश है।</div>
 </footer>
 
 <script>
-/* ---------------- लेख डेटाबेस ---------------- */
+/* ================= लेख डेटाबेस (मौलिक हिन्दी सारांश) ================= */
+const CATS = ["सिंहावलोकन","विनय पिटक","सुत्त पिटक","अभिधम्म पिटक","प्रमुख सुत्त","मूल अवधारणाएँ","व्यक्ति","इतिहास","भाषा एवं टीका"];
 const A = {
-  vinaya:{title:"विनय पिटक",pali:"Vinaya Piṭaka",cat:"पिटक",
-    info:{"प्रकार":"तीन पिटकों में से एक","भाषा":"पालि","विषय":"संघ का अनुशासन","मुख्य भाग":"3 (सुत्तविभंग, खन्धक, परिवार)"},
-    body:`<p><b>विनय पिटक</b> त्रिपिटक की पहली "पिटारी" है। इसमें भिक्षु और भिक्षुणी संघ के आचरण-नियम, उनके पालन का प्रयोजन तथा उन नियमों से जुड़ी घटनाएँ संकलित हैं।</p>
-      <h3>मुख्य विभाग</h3>
-      <ul>
-        <li><b>सुत्तविभंग</b> — पातिमोक्ख नियमों का विस्तृत विश्लेषण।</li>
-        <li><b>खन्धक</b> — <b>महावग्ग</b> और <b>चुल्लवग्ग</b>; संघ की दैनिक विधियाँ, प्रव्रज्या, उपसम्पदा आदि।</li>
-        <li><b>परिवार</b> — नियमों का सारांश और परिशिष्ट।</li>
-      </ul>
-      <h3>महत्व</h3>
-      <p>विनय संघ के सामूहिक जीवन का आधार है और इसे थेरवाद परम्परा में आज भी भिक्षु-जीवन का मार्गदर्शक माना जाता है।</p>`},
 
-  sutta:{title:"सुत्त पिटक",pali:"Sutta Piṭaka",cat:"पिटक",
-    info:{"प्रकार":"तीन पिटकों में से एक","भाषा":"पालि","निकाय":"5","विषय":"बुद्ध के प्रवचन"},
-    body:`<p><b>सुत्त पिटक</b> में बुद्ध और उनके प्रमुख शिष्यों के प्रवचन (सुत्त) संकलित हैं। यह पाँच <b>निकायों</b> में विभाजित है:</p>
-      <ul>
-        <li><a data-nav="digha">दीघ निकाय</a> — लम्बे सुत्त (34 सुत्त)।</li>
-        <li><a data-nav="majjhima">मज्झिम निकाय</a> — मध्यम आकार के सुत्त (152 सुत्त)।</li>
-        <li><a data-nav="samyutta">संयुत्त निकाय</a> — विषयवार समूहबद्ध सुत्त।</li>
-        <li><a data-nav="anguttara">अंगुत्तर निकाय</a> — संख्या के अनुसार क्रमबद्ध सुत्त।</li>
-        <li><a data-nav="khuddaka">खुद्दक निकाय</a> — छोटे ग्रन्थों का संग्रह (धम्मपद, जातक आदि)।</li>
-      </ul>
-      <p>यह पिटक बौद्ध शिक्षा — चार आर्य सत्य, अष्टांगिक मार्ग, प्रतीत्यसमुत्पाद — का प्रमुख स्रोत है।</p>`},
+/* ---- सिंहावलोकन ---- */
+about:{title:"इस विकि के बारे में",cat:"सिंहावलोकन",
+  body:`<p>यह <b>त्रिपिटक विकि</b> थेरवाद बौद्ध परम्परा के पालि सिद्धान्त का परिचय हिन्दी में देती है। यहाँ प्रत्येक लेख मौलिक रूप से लिखा गया संक्षिप्त सारांश है, जो त्रिपिटक की संरचना, प्रमुख ग्रन्थों और केंद्रीय अवधारणाओं को सरल भाषा में समझाता है।</p>
+  <p>त्रिपिटक ("तीन पिटारियाँ") में तीन संग्रह हैं — <a data-nav="vinaya">विनय</a>, <a data-nav="sutta">सुत्त</a> और <a data-nav="abhidhamma">अभिधम्म</a>। ये मिलकर थेरवाद का प्रामाणिक धर्मग्रन्थ बनाते हैं।</p>`},
 
-  abhidhamma:{title:"अभिधम्म पिटक",pali:"Abhidhamma Piṭaka",cat:"पिटक",
-    info:{"प्रकार":"तीन पिटकों में से एक","भाषा":"पालि","ग्रन्थ":"7","विषय":"परमार्थ धर्मों का विश्लेषण"},
-    body:`<p><b>अभिधम्म पिटक</b> बौद्ध शिक्षा का व्यवस्थित एवं दार्शनिक विश्लेषण प्रस्तुत करता है। इसमें मन (चित्त), चैतसिक, रूप और निर्वाण जैसे परमार्थ धर्मों का सूक्ष्म वर्गीकरण है।</p>
-      <h3>सात ग्रन्थ</h3>
-      <ul>
-        <li>धम्मसंगणि</li><li>विभंग</li><li>धातुकथा</li><li>पुग्गलपञ्ञत्ति</li>
-        <li>कथावत्थु</li><li>यमक</li><li>पट्ठान — 24 पच्चय (सम्बन्ध) का विवेचन।</li>
-      </ul>
-      <p>अभिधम्म को परम्परा में गहन अध्ययन का विषय माना जाता है।</p>`},
+theravada:{title:"थेरवाद परम्परा",pali:"Theravāda",cat:"सिंहावलोकन",
+  info:{"अर्थ":"स्थविरों का सिद्धान्त","धर्मग्रन्थ":"पालि त्रिपिटक","प्रमुख क्षेत्र":"श्रीलंका, म्यांमार, थाईलैंड, कम्बोडिया, लाओस"},
+  body:`<p><b>थेरवाद</b> ("वृद्ध/स्थविर भिक्षुओं का सिद्धान्त") बौद्ध धर्म की सबसे प्राचीन जीवित परम्परा मानी जाती है। यह अपने धर्मग्रन्थ के रूप में <a data-nav="pali">पालि</a> भाषा में संरक्षित त्रिपिटक को स्वीकार करती है।</p>
+  <p>थेरवाद में साधना का लक्ष्य <a data-nav="nibbana">निर्वाण</a> की प्राप्ति है, जिसके लिए शील, समाधि और प्रज्ञा के त्रिविध अभ्यास पर बल दिया जाता है।</p>`,see:["pali","tipitaka_history","councils"]},
 
-  digha:{title:"दीघ निकाय",pali:"Dīgha Nikāya",cat:"सुत्त पिटक",parent:"sutta",
-    info:{"निकाय":"सुत्त पिटक","सुत्त संख्या":"34","अर्थ":"लम्बे प्रवचन"},
-    body:`<p><b>दीघ निकाय</b> ("लम्बे संग्रह") में सबसे लम्बे 34 सुत्त हैं, जो तीन वग्गों में बँटे हैं। इसमें <a data-nav="mahaparinibbana">महापरिनिब्बान सुत्त</a> और <a data-nav="satipatthana">महासतिपट्ठान सुत्त</a> जैसे प्रसिद्ध सुत्त सम्मिलित हैं।</p>`},
+pali:{title:"पालि भाषा",pali:"Pāli",cat:"भाषा एवं टीका",
+  info:{"परिवार":"मध्य इंडो-आर्य (प्राकृत)","लिपि":"अनेक — देवनागरी, सिंहल, बर्मी, थाई, रोमन","प्रयोग":"थेरवाद धर्मग्रन्थ"},
+  body:`<p><b>पालि</b> वह प्राचीन मध्य इंडो-आर्य भाषा है जिसमें थेरवाद त्रिपिटक संरक्षित है। इसकी अपनी कोई एक मूल लिपि नहीं है; विभिन्न देशों में इसे उनकी अपनी लिपियों में लिखा जाता है।</p>
+  <p>परम्परा के अनुसार पालि वह भाषा है जिसमें बुद्ध के उपदेश संकलित हुए। भाषाविद इसे उत्तर भारत की किसी मध्यकालीन प्राकृत से जोड़ते हैं।</p>`,see:["atthakatha","tipitaka_history"]},
 
-  majjhima:{title:"मज्झिम निकाय",pali:"Majjhima Nikāya",cat:"सुत्त पिटक",parent:"sutta",
-    info:{"निकाय":"सुत्त पिटक","सुत्त संख्या":"152","अर्थ":"मध्यम प्रवचन"},
-    body:`<p><b>मज्झिम निकाय</b> ("मध्यम संग्रह") में 152 मध्यम आकार के सुत्त हैं, जो साधना, नैतिकता और दर्शन के व्यावहारिक पक्षों पर केंद्रित हैं।</p>`},
+atthakatha:{title:"अट्ठकथा (टीकाएँ)",pali:"Aṭṭhakathā",cat:"भाषा एवं टीका",
+  info:{"अर्थ":"अर्थ की व्याख्या","प्रमुख आचार्य":"बुद्धघोष, धम्मपाल"},
+  body:`<p><b>अट्ठकथा</b> त्रिपिटक के मूल पाठ पर लिखी गई पारम्परिक व्याख्याएँ हैं, जो कठिन शब्दों, प्रसंगों और सिद्धान्तों को स्पष्ट करती हैं।</p>
+  <p>आचार्य <a data-nav="buddhaghosa">बुद्धघोष</a> इन टीकाओं के संकलन और <b>विसुद्धिमग्ग</b> जैसे ग्रन्थ के लिए विशेष रूप से प्रसिद्ध हैं।</p>`,see:["buddhaghosa","pali"]},
 
-  samyutta:{title:"संयुत्त निकाय",pali:"Saṃyutta Nikāya",cat:"सुत्त पिटक",parent:"sutta",
-    info:{"निकाय":"सुत्त पिटक","संगठन":"विषयवार (संयुत्त)"},
-    body:`<p><b>संयुत्त निकाय</b> ("जुड़ा हुआ संग्रह") में सुत्त विषय के अनुसार समूहों (संयुत्त) में व्यवस्थित हैं। <a data-nav="dhammacakka">धम्मचक्कप्पवत्तन सुत्त</a> इसी निकाय के सच्चसंयुत्त में है।</p>`},
+tipitaka_history:{title:"त्रिपिटक का संकलन",pali:"",cat:"इतिहास",
+  body:`<p>बुद्ध के महापरिनिर्वाण के पश्चात उनकी शिक्षाएँ <b>मौखिक परम्परा</b> में सुरक्षित रखी गईं — भिक्षु उन्हें कण्ठस्थ कर समूहों में दोहराते थे। समय-समय पर आयोजित <a data-nav="councils">संगीतियों</a> में इन शिक्षाओं की समीक्षा और व्यवस्थित संकलन हुआ।</p>
+  <p>परम्परा के अनुसार त्रिपिटक को पहली बार लिखित रूप श्रीलंका में मिला, जिससे यह विशाल संग्रह स्थायी रूप से संरक्षित हो सका।</p>`,see:["councils","theravada"]},
 
-  anguttara:{title:"अंगुत्तर निकाय",pali:"Aṅguttara Nikāya",cat:"सुत्त पिटक",parent:"sutta",
-    info:{"निकाय":"सुत्त पिटक","संगठन":"संख्या के अनुसार (एक से ग्यारह)"},
-    body:`<p><b>अंगुत्तर निकाय</b> ("वृद्धिशील संग्रह") में सुत्त संख्यात्मक क्रम में — एक विषय, दो विषय, तीन विषय … — व्यवस्थित हैं।</p>`},
+councils:{title:"बौद्ध संगीतियाँ",pali:"Saṅgīti",cat:"इतिहास",
+  info:{"अर्थ":"सामूहिक पाठ/संगायन","उद्देश्य":"शिक्षाओं का संकलन एवं शुद्धिकरण"},
+  body:`<p><b>संगीति</b> उन ऐतिहासिक सभाओं को कहते हैं जिनमें भिक्षुओं ने बुद्ध की शिक्षाओं का सामूहिक रूप से पाठ कर उन्हें व्यवस्थित किया।</p>
+  <ul>
+    <li><b>प्रथम संगीति</b> — बुद्ध के महापरिनिर्वाण के तुरंत बाद, राजगृह में; <a data-nav="ananda">आनन्द</a> ने सुत्त और उपालि ने विनय का पाठ किया।</li>
+    <li><b>द्वितीय संगीति</b> — वैशाली में, विनय-सम्बन्धी विवादों के समाधान हेतु।</li>
+    <li><b>तृतीय संगीति</b> — पाटलिपुत्र में; इसी के आसपास धर्मदूत भेजे जाने की परम्परा जुड़ी है।</li>
+    <li>आगे श्रीलंका एवं अन्यत्र भी संगीतियाँ हुईं, जिनमें त्रिपिटक लिखित रूप में संकलित हुआ।</li>
+  </ul>`,see:["tipitaka_history","ananda"]},
 
-  khuddaka:{title:"खुद्दक निकाय",pali:"Khuddaka Nikāya",cat:"सुत्त पिटक",parent:"sutta",
-    info:{"निकाय":"सुत्त पिटक","अर्थ":"छोटा/विविध संग्रह"},
-    body:`<p><b>खुद्दक निकाय</b> ("छोटा संग्रह") विविध ग्रन्थों का समुच्चय है। इनमें कई सर्वाधिक लोकप्रिय बौद्ध रचनाएँ हैं:</p>
-      <ul>
-        <li><a data-nav="dhammapada">धम्मपद</a></li>
-        <li>सुत्तनिपात</li>
-        <li>उदान · इतिवुत्तक</li>
-        <li>जातक (बुद्ध के पूर्वजन्मों की कथाएँ)</li>
-        <li>थेरगाथा · थेरीगाथा</li>
-      </ul>`},
+/* ---- विनय पिटक ---- */
+vinaya:{title:"विनय पिटक",pali:"Vinaya Piṭaka",cat:"विनय पिटक",
+  info:{"प्रकार":"तीन पिटकों में से एक","विषय":"संघ का अनुशासन","मुख्य भाग":"सुत्तविभंग, खन्धक, परिवार"},
+  body:`<p><b>विनय पिटक</b> त्रिपिटक की पहली "पिटारी" है। इसमें भिक्षु-भिक्षुणी <a data-nav="sangha">संघ</a> के आचरण-नियम, उनके निर्धारण का प्रयोजन तथा उनसे जुड़ी घटनाएँ संकलित हैं।</p>
+  <h3>मुख्य विभाग</h3>
+  <ul>
+    <li><a data-nav="suttavibhanga">सुत्तविभंग</a> — <a data-nav="patimokkha">पातिमोक्ख</a> नियमों का विस्तृत विश्लेषण।</li>
+    <li><a data-nav="khandhaka">खन्धक</a> — महावग्ग एवं चुल्लवग्ग; संघ की विधियाँ।</li>
+    <li><a data-nav="parivara">परिवार</a> — नियमों का सारांश एवं परिशिष्ट।</li>
+  </ul>`,see:["patimokkha","sangha","khandhaka"]},
 
-  dhammapada:{title:"धम्मपद",pali:"Dhammapada",cat:"खुद्दक निकाय",parent:"khuddaka",
-    info:{"निकाय":"खुद्दक निकाय","श्लोक":"423","वग्ग":"26"},
-    body:`<p><b>धम्मपद</b> पालि साहित्य का सबसे प्रसिद्ध ग्रन्थ है — 26 वग्गों में विभाजित 423 पद्य (गाथाएँ)। इसमें नैतिकता, मन के संयम और मुक्ति के सूत्र संक्षिप्त श्लोकों में दिए गए हैं।</p>
-      <div class="quote">"मन सभी धर्मों का अग्रगामी है, मन ही प्रधान है, सब कुछ मन से ही निर्मित होता है।"<span class="src">— धम्मपद, यमक वग्ग, श्लोक 1</span></div>`},
+suttavibhanga:{title:"सुत्तविभंग",pali:"Suttavibhaṅga",cat:"विनय पिटक",parent:"vinaya",
+  body:`<p><b>सुत्तविभंग</b> विनय पिटक का वह भाग है जिसमें प्रत्येक <a data-nav="patimokkha">पातिमोक्ख</a> नियम को उसकी उत्पत्ति की कथा, नियम का पाठ, और उसके शब्दों की व्याख्या सहित प्रस्तुत किया गया है। यह भिक्षु और भिक्षुणी दोनों के लिए अलग-अलग विभाजित है।</p>`,see:["patimokkha","vinaya"]},
 
-  dhammacakka:{title:"धम्मचक्कप्पवत्तन सुत्त",pali:"Dhammacakkappavattana Sutta",cat:"विशेष लेख",parent:"samyutta",
-    info:{"स्थान":"संयुत्त निकाय (सच्चसंयुत्त)","अवसर":"बुद्ध का प्रथम उपदेश","स्थल":"सारनाथ, मृगदाव"},
-    body:`<p><b>धम्मचक्कप्पवत्तन सुत्त</b> ("धर्मचक्र प्रवर्तन सूत्र") बुद्ध का पहला उपदेश माना जाता है, जो उन्होंने बोधि प्राप्ति के पश्चात सारनाथ के मृगदाव में पाँच भिक्षुओं को दिया।</p>
-      <h3>मुख्य शिक्षाएँ</h3>
-      <ul>
-        <li><b>मध्यम मार्ग</b> — अति भोग और अति तप, दोनों से बचाव।</li>
-        <li><b>चार आर्य सत्य</b> — दुःख, दुःख-समुदय, दुःख-निरोध, तथा निरोध का मार्ग।</li>
-        <li><b>आर्य अष्टांगिक मार्ग</b> — दुःख-निरोध की ओर ले जाने वाला मार्ग।</li>
-      </ul>`},
+khandhaka:{title:"खन्धक",pali:"Khandhaka",cat:"विनय पिटक",parent:"vinaya",
+  body:`<p><b>खन्धक</b> विनय का वह भाग है जो विषयवार अध्यायों में संघ के सामूहिक जीवन को नियमित करता है। इसके दो प्रमुख खंड हैं — <b>महावग्ग</b> (प्रव्रज्या, उपसम्पदा, उपोसथ आदि) और <b>चुल्लवग्ग</b> (विवाद-समाधान, आवास, भिक्षुणी संघ आदि)।</p>`,see:["vinaya","sangha"]},
 
-  satipatthana:{title:"सतिपट्ठान सुत्त",pali:"Satipaṭṭhāna Sutta",cat:"सुत्त",parent:"digha",
-    info:{"विषय":"स्मृति के चार आधार","प्रकार":"साधना सुत्त"},
-    body:`<p><b>सतिपट्ठान सुत्त</b> ध्यान-साधना का आधारभूत उपदेश है, जिसमें स्मृति (सति) के चार आधार बताए गए हैं: <b>कायानुपस्सना</b> (शरीर), <b>वेदनानुपस्सना</b> (संवेदना), <b>चित्तानुपस्सना</b> (मन) और <b>धम्मानुपस्सना</b> (धर्म)।</p>`},
+parivara:{title:"परिवार",pali:"Parivāra",cat:"विनय पिटक",parent:"vinaya",
+  body:`<p><b>परिवार</b> विनय पिटक का अंतिम भाग है, जो एक परिशिष्ट के रूप में नियमों का सारांश, वर्गीकरण एवं प्रश्नोत्तर प्रस्तुत करता है। इसे विनय के अध्ययन में सहायक मार्गदर्शिका माना जाता है।</p>`,see:["vinaya"]},
 
-  mahaparinibbana:{title:"महापरिनिब्बान सुत्त",pali:"Mahāparinibbāna Sutta",cat:"सुत्त",parent:"digha",
-    info:{"निकाय":"दीघ निकाय","विषय":"बुद्ध के अंतिम दिन"},
-    body:`<p><b>महापरिनिब्बान सुत्त</b> दीघ निकाय का सबसे लम्बा सुत्त है, जिसमें बुद्ध की अंतिम यात्रा, उनके अंतिम उपदेश और महापरिनिर्वाण का वर्णन है।</p>`},
+patimokkha:{title:"पातिमोक्ख",pali:"Pātimokkha",cat:"विनय पिटक",parent:"vinaya",
+  info:{"अर्थ":"मूल आचार-संहिता","पाठ":"उपोसथ के दिन सामूहिक रूप से"},
+  body:`<p><b>पातिमोक्ख</b> भिक्षु-भिक्षुणी संघ की मूल आचार-संहिता है, जिसे उपोसथ (पूर्णिमा-अमावस्या) के दिन संघ के समक्ष सामूहिक रूप से पढ़ा जाता है। इसमें नियमों को उनकी गंभीरता के अनुसार श्रेणियों में रखा गया है।</p>`,see:["suttavibhanga","vinaya"]},
 
-  theravada:{title:"थेरवाद परम्परा",pali:"Theravāda",cat:"परम्परा",
-    info:{"अर्थ":"स्थविरों का वाद","धर्मग्रन्थ":"पालि त्रिपिटक","प्रमुख क्षेत्र":"श्रीलंका, म्यांमार, थाईलैंड आदि"},
-    body:`<p><b>थेरवाद</b> ("वृद्ध/स्थविर भिक्षुओं का सिद्धान्त") बौद्ध धर्म की सबसे प्राचीन जीवित परम्परा है, जो पालि त्रिपिटक को अपना प्रामाणिक धर्मग्रन्थ मानती है।</p>`},
+/* ---- सुत्त पिटक ---- */
+sutta:{title:"सुत्त पिटक",pali:"Sutta Piṭaka",cat:"सुत्त पिटक",
+  info:{"प्रकार":"तीन पिटकों में से एक","निकाय":"5","विषय":"बुद्ध के प्रवचन"},
+  body:`<p><b>सुत्त पिटक</b> में बुद्ध और उनके प्रमुख शिष्यों के प्रवचन (सुत्त) संकलित हैं। यह पाँच <b>निकायों</b> में विभाजित है:</p>
+  <ul>
+    <li><a data-nav="digha">दीघ निकाय</a> — लम्बे सुत्त</li>
+    <li><a data-nav="majjhima">मज्झिम निकाय</a> — मध्यम आकार के सुत्त</li>
+    <li><a data-nav="samyutta">संयुत्त निकाय</a> — विषयवार समूहबद्ध सुत्त</li>
+    <li><a data-nav="anguttara">अंगुत्तर निकाय</a> — संख्या के अनुसार क्रमित सुत्त</li>
+    <li><a data-nav="khuddaka">खुद्दक निकाय</a> — छोटे ग्रन्थों का संग्रह</li>
+  </ul>`,see:["digha","majjhima","khuddaka"]},
 
-  pali:{title:"पालि भाषा",pali:"Pāli",cat:"भाषा",
-    info:{"परिवार":"मध्य इंडो-आर्य (प्राकृत)","लिपि":"अनेक (देवनागरी, सिंहल, रोमन आदि)","प्रयोग":"थेरवाद धर्मग्रन्थ"},
-    body:`<p><b>पालि</b> वह प्राचीन मध्य इंडो-आर्य भाषा है जिसमें थेरवाद त्रिपिटक संरक्षित है। इसकी अपनी कोई मूल लिपि नहीं है; इसे विभिन्न देशों में उनकी अपनी लिपियों में लिखा जाता है।</p>`},
+digha:{title:"दीघ निकाय",pali:"Dīgha Nikāya",cat:"सुत्त पिटक",parent:"sutta",
+  info:{"निकाय":"सुत्त पिटक","सुत्त संख्या":"34","अर्थ":"लम्बे प्रवचन"},
+  body:`<p><b>दीघ निकाय</b> ("लम्बा संग्रह") में सबसे लम्बे 34 सुत्त हैं, जो तीन वग्गों में बँटे हैं। इसमें कई प्रसिद्ध सुत्त सम्मिलित हैं:</p>
+  <ul>
+    <li><a data-nav="brahmajala">ब्रह्मजाल सुत्त</a></li>
+    <li><a data-nav="samannaphala">सामञ्ञफल सुत्त</a></li>
+    <li><a data-nav="mahaparinibbana">महापरिनिब्बान सुत्त</a></li>
+    <li><a data-nav="satipatthana">महासतिपट्ठान सुत्त</a></li>
+    <li><a data-nav="sigalovada">सिगालोवाद सुत्त</a></li>
+  </ul>`,see:["mahaparinibbana","satipatthana","sutta"]},
 
-  atthakatha:{title:"अट्ठकथा (टीकाएँ)",pali:"Aṭṭhakathā",cat:"टीका",
-    info:{"अर्थ":"अर्थ की व्याख्या","प्रमुख आचार्य":"बुद्धघोष आदि"},
-    body:`<p><b>अट्ठकथा</b> त्रिपिटक के मूल पाठ पर लिखी गई पारम्परिक टीकाएँ हैं, जो कठिन शब्दों और प्रसंगों की व्याख्या करती हैं। आचार्य <b>बुद्धघोष</b> इन टीकाओं के संकलन के लिए विशेष रूप से प्रसिद्ध हैं।</p>`},
+majjhima:{title:"मज्झिम निकाय",pali:"Majjhima Nikāya",cat:"सुत्त पिटक",parent:"sutta",
+  info:{"निकाय":"सुत्त पिटक","सुत्त संख्या":"152","अर्थ":"मध्यम प्रवचन"},
+  body:`<p><b>मज्झिम निकाय</b> ("मध्यम संग्रह") में 152 मध्यम आकार के सुत्त हैं, जो नैतिकता, ध्यान और दर्शन के व्यावहारिक पक्षों पर केंद्रित हैं। <a data-nav="anapanasati">आनापानसति सुत्त</a> इसी निकाय में है।</p>`,see:["anapanasati","satipatthana","sutta"]},
 
-  recent:{title:"हाल में हुए बदलाव",pali:"",cat:"समुदाय",
-    body:`<p>इस डेमो विकि में हाल के (काल्पनिक) सम्पादन:</p>
-      <ul>
-        <li><a data-nav="dhammapada">धम्मपद</a> — वग्ग सूची जोड़ी गई · <i>2 घंटे पहले</i></li>
-        <li><a data-nav="abhidhamma">अभिधम्म पिटक</a> — पट्ठान अनुभाग विस्तारित · <i>आज</i></li>
-        <li><a data-nav="digha">दीघ निकाय</a> — सुत्त गणना सुधारी गई · <i>कल</i></li>
-        <li><a data-nav="theravada">थेरवाद परम्परा</a> — नया लेख बनाया गया · <i>2 दिन पहले</i></li>
-      </ul>`},
+samyutta:{title:"संयुत्त निकाय",pali:"Saṃyutta Nikāya",cat:"सुत्त पिटक",parent:"sutta",
+  info:{"निकाय":"सुत्त पिटक","संगठन":"विषयवार (संयुत्त)"},
+  body:`<p><b>संयुत्त निकाय</b> ("जुड़ा हुआ संग्रह") में सुत्त विषय के अनुसार समूहों (संयुत्त) में व्यवस्थित हैं — जैसे देवता, कर्म, स्कन्ध, या सत्य से जुड़े सुत्त। <a data-nav="dhammacakka">धम्मचक्कप्पवत्तन सुत्त</a> तथा <a data-nav="anattalakkhana">अनत्तलक्खण सुत्त</a> इसी निकाय में हैं।</p>`,see:["dhammacakka","anattalakkhana","sutta"]},
 
-  samuday:{title:"समुदाय एवं सहायता",pali:"",cat:"समुदाय",
-    body:`<p>त्रिपिटक विकि में योगदान का स्वागत है। यह एक शैक्षिक डेमो है, अतः सम्पादन सुविधाएँ सक्रिय नहीं हैं।</p>
-      <h3>शैली मार्गदर्शिका</h3>
-      <ul>
-        <li>पालि शब्दों को देवनागरी में लिखें और कोष्ठक में रोमन लिप्यन्तरण दें।</li>
-        <li>हर लेख के आरम्भ में एक संक्षिप्त परिभाषा हो।</li>
-        <li>स्रोत के रूप में मूल सुत्त/निकाय का संदर्भ दें।</li>
-      </ul>
-      <h3>सहायता</h3>
-      <p>ऊपर के <b>खोज</b> बॉक्स से किसी भी लेख को ढूँढ़ें, या नेविगेशन से पिटक चुनें।</p>`}
+anguttara:{title:"अंगुत्तर निकाय",pali:"Aṅguttara Nikāya",cat:"सुत्त पिटक",parent:"sutta",
+  info:{"निकाय":"सुत्त पिटक","संगठन":"संख्या के अनुसार (1 से 11)"},
+  body:`<p><b>अंगुत्तर निकाय</b> ("वृद्धिशील संग्रह") में सुत्त संख्यात्मक क्रम में व्यवस्थित हैं — एक विषय, दो विषय, तीन विषय … ग्यारह तक। यह वर्गीकरण स्मरण और अध्ययन को सरल बनाता है।</p>`,see:["sutta"]},
+
+khuddaka:{title:"खुद्दक निकाय",pali:"Khuddaka Nikāya",cat:"सुत्त पिटक",parent:"sutta",
+  info:{"निकाय":"सुत्त पिटक","अर्थ":"छोटा/विविध संग्रह"},
+  body:`<p><b>खुद्दक निकाय</b> ("छोटा संग्रह") विविध ग्रन्थों का समुच्चय है, जिसमें कई सर्वाधिक लोकप्रिय बौद्ध रचनाएँ आती हैं:</p>
+  <ul>
+    <li><a data-nav="dhammapada">धम्मपद</a></li>
+    <li><a data-nav="suttanipata">सुत्तनिपात</a></li>
+    <li><a data-nav="udana">उदान</a> · <a data-nav="itivuttaka">इतिवुत्तक</a></li>
+    <li><a data-nav="jataka">जातक</a></li>
+    <li><a data-nav="theragatha">थेरगाथा एवं थेरीगाथा</a></li>
+  </ul>`,see:["dhammapada","jataka","suttanipata"]},
+
+/* ---- खुद्दक के ग्रन्थ ---- */
+dhammapada:{title:"धम्मपद",pali:"Dhammapada",cat:"सुत्त पिटक",parent:"khuddaka",
+  info:{"निकाय":"खुद्दक निकाय","श्लोक":"423","वग्ग":"26"},
+  body:`<p><b>धम्मपद</b> पालि साहित्य का सबसे प्रसिद्ध ग्रन्थ है — 26 वग्गों में विभाजित 423 पद्य (गाथाएँ)। इसमें नैतिकता, मन के संयम और मुक्ति के सूत्र संक्षिप्त श्लोकों में दिए गए हैं। इसकी सरलता के कारण यह विश्वभर में सर्वाधिक अनूदित बौद्ध ग्रन्थों में से एक है।</p>
+  <div class="quote">पहला श्लोक (यमक वग्ग) का भाव: सभी अवस्थाओं में मन ही अग्रगामी और प्रधान है — शुभ या अशुभ, सब मन से ही आरम्भ होता है।<span class="src">— धम्मपद, यमक वग्ग (भावानुवाद)</span></div>`,see:["khuddaka","concepts"]},
+
+suttanipata:{title:"सुत्तनिपात",pali:"Sutta Nipāta",cat:"सुत्त पिटक",parent:"khuddaka",
+  body:`<p><b>सुत्तनिपात</b> खुद्दक निकाय का एक प्राचीन पद्य-संग्रह है, जिसमें <a data-nav="mangala">मंगल सुत्त</a>, <a data-nav="karaniyametta">करणीयमेत्त सुत्त</a> तथा <a data-nav="ratana">रतन सुत्त</a> जैसे लोकप्रिय पाठ आते हैं। इसकी भाषा और शैली को त्रिपिटक के आरंभिक स्तरों में गिना जाता है।</p>`,see:["mangala","karaniyametta","ratana"]},
+
+udana:{title:"उदान",pali:"Udāna",cat:"सुत्त पिटक",parent:"khuddaka",
+  body:`<p><b>उदान</b> ("प्रेरित उद्गार") में वे संक्षिप्त प्रसंग संकलित हैं जिनके अंत में बुद्ध द्वारा कहे गए भावपूर्ण उद्गार-वचन आते हैं। प्रत्येक प्रसंग किसी घटना के संदर्भ में एक गहन शिक्षा प्रकट करता है।</p>`,see:["itivuttaka","khuddaka"]},
+
+itivuttaka:{title:"इतिवुत्तक",pali:"Itivuttaka",cat:"सुत्त पिटक",parent:"khuddaka",
+  body:`<p><b>इतिवुत्तक</b> ("इस प्रकार कहा गया") गद्य और पद्य के मिश्रित रूप में छोटे सुत्तों का संग्रह है, जिनका आरंभ प्रायः "इस प्रकार भगवान ने कहा" वाक्यांश से होता है। ये नैतिक एवं साधनात्मक विषयों पर संक्षिप्त उपदेश हैं।</p>`,see:["udana","khuddaka"]},
+
+jataka:{title:"जातक कथाएँ",pali:"Jātaka",cat:"सुत्त पिटक",parent:"khuddaka",
+  info:{"विषय":"बुद्ध के पूर्वजन्म","रूप":"कथा एवं पद्य"},
+  body:`<p><b>जातक</b> उन कथाओं का संग्रह है जो बुद्ध के पूर्वजन्मों से जुड़ी बताई जाती हैं। इनमें बोधिसत्त्व विभिन्न रूपों — मनुष्य, पशु, देवता — में <a data-nav="paramita">पारमिताओं</a> (दान, शील, क्षमा आदि) का अभ्यास करते दिखाए जाते हैं। ये कथाएँ नैतिक शिक्षा और लोक-साहित्य दोनों दृष्टियों से महत्वपूर्ण हैं।</p>`,see:["paramita","khuddaka"]},
+
+theragatha:{title:"थेरगाथा एवं थेरीगाथा",pali:"Theragāthā / Therīgāthā",cat:"सुत्त पिटक",parent:"khuddaka",
+  body:`<p><b>थेरगाथा</b> और <b>थेरीगाथा</b> क्रमशः प्राचीन भिक्षुओं (थेर) और भिक्षुणियों (थेरी) द्वारा कहे गए पद्यों का संग्रह हैं। इनमें साधना का अनुभव, मुक्ति का आनंद और जीवन-दृष्टि व्यक्तिगत स्वर में प्रकट होती है। थेरीगाथा को प्रारंभिक स्त्री-रचित आध्यात्मिक साहित्य का महत्वपूर्ण उदाहरण माना जाता है।</p>`,see:["khuddaka"]},
+
+/* ---- प्रमुख सुत्त ---- */
+dhammacakka:{title:"धम्मचक्कप्पवत्तन सुत्त",pali:"Dhammacakkappavattana Sutta",cat:"प्रमुख सुत्त",parent:"samyutta",
+  info:{"स्थान":"संयुत्त निकाय","अवसर":"बुद्ध का प्रथम उपदेश","स्थल":"सारनाथ, मृगदाव"},
+  body:`<p><b>धम्मचक्कप्पवत्तन सुत्त</b> ("धर्मचक्र प्रवर्तन") बुद्ध का पहला उपदेश माना जाता है, जो उन्होंने बोधि-प्राप्ति के बाद सारनाथ के मृगदाव में पाँच भिक्षुओं को दिया।</p>
+  <h3>मुख्य शिक्षाएँ</h3>
+  <ul>
+    <li><a data-nav="middleway">मध्यम मार्ग</a> — अति भोग और अति तप, दोनों से बचाव।</li>
+    <li><a data-nav="fourtruths">चार आर्य सत्य</a></li>
+    <li><a data-nav="eightfold">आर्य अष्टांगिक मार्ग</a></li>
+  </ul>`,see:["fourtruths","eightfold","middleway"]},
+
+anattalakkhana:{title:"अनत्तलक्खण सुत्त",pali:"Anattalakkhaṇa Sutta",cat:"प्रमुख सुत्त",parent:"samyutta",
+  body:`<p><b>अनत्तलक्खण सुत्त</b> बुद्ध का प्रारंभिक उपदेश माना जाता है, जिसमें <a data-nav="anatta">अनात्मा</a> (अनत्ता) का सिद्धान्त समझाया गया है — कि <a data-nav="khandha">पंचस्कन्ध</a> में से कोई भी स्थायी, नियंत्रणकारी "आत्मा" नहीं है। परम्परा के अनुसार इसे सुनकर पाँच भिक्षुओं ने अर्हत्व प्राप्त किया।</p>`,see:["anatta","khandha"]},
+
+satipatthana:{title:"सतिपट्ठान सुत्त",pali:"Satipaṭṭhāna Sutta",cat:"प्रमुख सुत्त",parent:"digha",
+  info:{"विषय":"स्मृति के चार आधार","प्रकार":"साधना सुत्त"},
+  body:`<p><b>सतिपट्ठान सुत्त</b> ध्यान-साधना का आधारभूत उपदेश है, जिसमें स्मृति (सति) के चार आधार बताए गए हैं:</p>
+  <ul>
+    <li><b>कायानुपस्सना</b> — शरीर के प्रति सजगता (श्वास, आसन आदि)।</li>
+    <li><b>वेदनानुपस्सना</b> — सुखद/दुखद/तटस्थ संवेदनाओं के प्रति।</li>
+    <li><b>चित्तानुपस्सना</b> — मन की अवस्थाओं के प्रति।</li>
+    <li><b>धम्मानुपस्सना</b> — मानसिक विषयों/धर्मों के प्रति।</li>
+  </ul>`,see:["anapanasati","vipassana"]},
+
+anapanasati:{title:"आनापानसति सुत्त",pali:"Ānāpānasati Sutta",cat:"प्रमुख सुत्त",parent:"majjhima",
+  body:`<p><b>आनापानसति सुत्त</b> श्वास-प्रश्वास पर आधारित ध्यान (आनापानसति) का क्रमबद्ध वर्णन करता है। इसमें सोलह चरणों में श्वास की सजगता से लेकर <a data-nav="satipatthana">चार सतिपट्ठान</a> और बोध्यंगों के विकास तक की साधना बताई गई है।</p>`,see:["satipatthana","vipassana"]},
+
+mahaparinibbana:{title:"महापरिनिब्बान सुत्त",pali:"Mahāparinibbāna Sutta",cat:"प्रमुख सुत्त",parent:"digha",
+  body:`<p><b>महापरिनिब्बान सुत्त</b> दीघ निकाय का सबसे लम्बा सुत्त है, जिसमें बुद्ध की अंतिम यात्रा, उनके अंतिम उपदेश और <a data-nav="nibbana">महापरिनिर्वाण</a> का वर्णन है। इसमें बुद्ध का अंतिम सन्देश — सतत सजगता और अप्रमाद — विशेष रूप से स्मरणीय है।</p>`,see:["nibbana","buddha"]},
+
+brahmajala:{title:"ब्रह्मजाल सुत्त",pali:"Brahmajāla Sutta",cat:"प्रमुख सुत्त",parent:"digha",
+  body:`<p><b>ब्रह्मजाल सुत्त</b> दीघ निकाय का प्रथम सुत्त है, जिसमें उस काल में प्रचलित अनेक दार्शनिक दृष्टियों (दृष्टिवादों) का विश्लेषण किया गया है और यह दिखाया गया है कि किस प्रकार अनुभव के प्रति सजगता इन विचार-जालों से मुक्ति देती है।</p>`,see:["digha"]},
+
+samannaphala:{title:"सामञ्ञफल सुत्त",pali:"Sāmaññaphala Sutta",cat:"प्रमुख सुत्त",parent:"digha",
+  body:`<p><b>सामञ्ञफल सुत्त</b> ("श्रामण्य के फल") में राजा अजातशत्रु के प्रश्न के उत्तर में बुद्ध साधु-जीवन के इहलौकिक एवं आध्यात्मिक लाभों — शील, समाधि और प्रज्ञा के क्रमिक विकास — का वर्णन करते हैं।</p>`,see:["digha","eightfold"]},
+
+sigalovada:{title:"सिगालोवाद सुत्त",pali:"Sigālovāda Sutta",cat:"प्रमुख सुत्त",parent:"digha",
+  body:`<p><b>सिगालोवाद सुत्त</b> गृहस्थ जीवन की नैतिकता पर एक व्यावहारिक उपदेश है, जिसमें माता-पिता, गुरु, पत्नी, मित्र, सेवक और श्रमणों के प्रति कर्तव्यों को छह दिशाओं के रूपक से समझाया गया है। इसे "गृहस्थों का अनुशासन" भी कहा जाता है।</p>`,see:["digha"]},
+
+mangala:{title:"मंगल सुत्त",pali:"Maṅgala Sutta",cat:"प्रमुख सुत्त",parent:"suttanipata",
+  body:`<p><b>मंगल सुत्त</b> में "सबसे बड़ा मंगल क्या है?" के उत्तर में बुद्ध जीवन के अनेक कल्याणकारी आचरण गिनाते हैं — सत्संग, विद्या, शिल्प, विनम्रता, माता-पिता की सेवा, दान, धर्माचरण आदि। यह थेरवाद देशों में अत्यंत लोकप्रिय परित्त-पाठ है।</p>`,see:["suttanipata","karaniyametta"]},
+
+karaniyametta:{title:"करणीयमेत्त सुत्त",pali:"Karaṇīyamettā Sutta",cat:"प्रमुख सुत्त",parent:"suttanipata",
+  body:`<p><b>करणीयमेत्त सुत्त</b> मैत्री (मेत्ता) की भावना पर केंद्रित एक प्रसिद्ध पाठ है, जिसमें सभी प्राणियों के प्रति असीम प्रेम और शुभकामना विकसित करने की विधि बताई गई है — "जैसे माता अपने एकमात्र पुत्र की रक्षा करती है" उसी भाव से सबका कल्याण चाहा जाए।</p>`,see:["brahmavihara","suttanipata"]},
+
+ratana:{title:"रतन सुत्त",pali:"Ratana Sutta",cat:"प्रमुख सुत्त",parent:"suttanipata",
+  body:`<p><b>रतन सुत्त</b> ("रत्न सूत्र") में बुद्ध, धर्म और <a data-nav="sangha">संघ</a> — इन तीन रत्नों के गुणों का वर्णन कर मंगल-कामना की गई है। थेरवाद परम्परा में इसका पाठ रक्षा एवं शांति के लिए किया जाता है।</p>`,see:["suttanipata","sangha"]},
+
+/* ---- अभिधम्म ---- */
+abhidhamma:{title:"अभिधम्म पिटक",pali:"Abhidhamma Piṭaka",cat:"अभिधम्म पिटक",
+  info:{"प्रकार":"तीन पिटकों में से एक","ग्रन्थ":"7","विषय":"परमार्थ धर्मों का विश्लेषण"},
+  body:`<p><b>अभिधम्म पिटक</b> बौद्ध शिक्षा का व्यवस्थित एवं दार्शनिक विश्लेषण प्रस्तुत करता है। इसमें मन (चित्त), चैतसिक, रूप और <a data-nav="nibbana">निर्वाण</a> जैसे परमार्थ धर्मों का सूक्ष्म वर्गीकरण है।</p>
+  <h3>सात ग्रन्थ</h3>
+  <ul>
+    <li><a data-nav="dhammasangani">धम्मसंगणि</a></li>
+    <li><a data-nav="vibhanga">विभंग</a></li>
+    <li>धातुकथा · पुग्गलपञ्ञत्ति</li>
+    <li><a data-nav="kathavatthu">कथावत्थु</a> · यमक</li>
+    <li><a data-nav="patthana">पट्ठान</a></li>
+  </ul>`,see:["dhammasangani","patthana","abhidhamma_method"]},
+
+dhammasangani:{title:"धम्मसंगणि",pali:"Dhammasaṅgaṇī",cat:"अभिधम्म पिटक",parent:"abhidhamma",
+  body:`<p><b>धम्मसंगणि</b> ("धर्मों की गणना") अभिधम्म का प्रथम ग्रन्थ है, जो चित्त, चैतसिक और रूप को कुशल-अकुशल-अव्याकृत आदि श्रेणियों में वर्गीकृत करता है। यह अभिधम्म की विश्लेषणात्मक शब्दावली का आधार तैयार करता है।</p>`,see:["abhidhamma","vibhanga"]},
+
+vibhanga:{title:"विभंग",pali:"Vibhaṅga",cat:"अभिधम्म पिटक",parent:"abhidhamma",
+  body:`<p><b>विभंग</b> ("विश्लेषण") में स्कन्ध, आयतन, धातु, इन्द्रिय, सत्य आदि प्रमुख विषयों का विस्तृत विश्लेषण किया गया है। यह प्रायः प्रत्येक विषय को सुत्त-पद्धति और अभिधम्म-पद्धति दोनों दृष्टियों से समझाता है।</p>`,see:["abhidhamma","dhammasangani"]},
+
+kathavatthu:{title:"कथावत्थु",pali:"Kathāvatthu",cat:"अभिधम्म पिटक",parent:"abhidhamma",
+  body:`<p><b>कथावत्थु</b> ("विवाद-बिंदु") प्रश्नोत्तर शैली में विभिन्न मतों की समीक्षा करता है और थेरवाद दृष्टिकोण को तर्क द्वारा स्पष्ट करता है। परम्परा इसे <a data-nav="councils">तृतीय संगीति</a> से जोड़ती है।</p>`,see:["abhidhamma","councils"]},
+
+patthana:{title:"पट्ठान",pali:"Paṭṭhāna",cat:"अभिधम्म पिटक",parent:"abhidhamma",
+  info:{"अर्थ":"सम्बन्धों का ग्रन्थ","पच्चय":"24"},
+  body:`<p><b>पट्ठान</b> ("सम्बन्ध") अभिधम्म का सबसे विशाल और गहन ग्रन्थ है, जिसमें धर्मों के परस्पर सम्बन्ध की 24 विधियों (पच्चय) — जैसे हेतु, आरम्मण, अधिपति, अनन्तर — का विश्लेषण किया गया है। इसे अभिधम्म की चरम अभिव्यक्ति माना जाता है।</p>`,see:["abhidhamma","paticcasamuppada"]},
+
+abhidhamma_method:{title:"अभिधम्म की पद्धति",pali:"",cat:"अभिधम्म पिटक",parent:"abhidhamma",
+  body:`<p>अभिधम्म अनुभव को <b>परमार्थ धर्मों</b> (चित्त, चैतसिक, रूप, निर्वाण) में विश्लेषित करता है, जबकि सुत्त प्रायः व्यावहारिक/लौकिक भाषा में शिक्षा देते हैं। यह विश्लेषणात्मक पद्धति साधना में मन की अवस्थाओं को स्पष्टता से समझने में सहायक मानी जाती है।</p>`,see:["abhidhamma","khandha"]},
+
+/* ---- मूल अवधारणाएँ ---- */
+concepts:{title:"मूल अवधारणाएँ",cat:"मूल अवधारणाएँ",
+  body:`<p>बौद्ध शिक्षा की केंद्रीय अवधारणाएँ जो पूरे त्रिपिटक में बार-बार आती हैं:</p>
+  <div class="taglist" style="margin-top:6px">
+    <a data-nav="fourtruths">चार आर्य सत्य</a>
+    <a data-nav="eightfold">अष्टांगिक मार्ग</a>
+    <a data-nav="paticcasamuppada">प्रतीत्यसमुत्पाद</a>
+    <a data-nav="khandha">पंचस्कन्ध</a>
+    <a data-nav="tilakkhana">त्रिलक्षण</a>
+    <a data-nav="anatta">अनात्मा</a>
+    <a data-nav="nibbana">निर्वाण</a>
+    <a data-nav="kamma">कर्म</a>
+    <a data-nav="paramita">पारमिता</a>
+    <a data-nav="brahmavihara">ब्रह्मविहार</a>
+    <a data-nav="middleway">मध्यम मार्ग</a>
+    <a data-nav="vipassana">विपश्यना</a>
+  </div>`,see:["fourtruths","eightfold","paticcasamuppada"]},
+
+fourtruths:{title:"चार आर्य सत्य",pali:"Cattāri Ariyasaccāni",cat:"मूल अवधारणाएँ",
+  body:`<p><b>चार आर्य सत्य</b> बुद्ध की शिक्षा का केंद्र हैं:</p>
+  <ul>
+    <li><b>दुःख</b> — जीवन में असंतोष एवं पीड़ा की उपस्थिति।</li>
+    <li><b>दुःख-समुदय</b> — दुःख का कारण, मुख्यतः तृष्णा।</li>
+    <li><b>दुःख-निरोध</b> — तृष्णा के क्षय से दुःख का निरोध (<a data-nav="nibbana">निर्वाण</a>)।</li>
+    <li><b>दुःख-निरोध-गामिनी प्रतिपदा</b> — <a data-nav="eightfold">अष्टांगिक मार्ग</a>।</li>
+  </ul>`,see:["eightfold","nibbana","dhammacakka"]},
+
+eightfold:{title:"आर्य अष्टांगिक मार्ग",pali:"Ariya Aṭṭhaṅgika Magga",cat:"मूल अवधारणाएँ",
+  body:`<p><b>आर्य अष्टांगिक मार्ग</b> दुःख-निरोध की ओर ले जाने वाला व्यावहारिक मार्ग है, जिसे शील-समाधि-प्रज्ञा के तीन स्कन्धों में बाँटा जाता है:</p>
+  <ul>
+    <li><b>प्रज्ञा</b> — सम्यक् दृष्टि, सम्यक् संकल्प</li>
+    <li><b>शील</b> — सम्यक् वाणी, सम्यक् कर्मान्त, सम्यक् आजीविका</li>
+    <li><b>समाधि</b> — सम्यक् व्यायाम, सम्यक् स्मृति, सम्यक् समाधि</li>
+  </ul>`,see:["fourtruths","middleway"]},
+
+middleway:{title:"मध्यम मार्ग",pali:"Majjhimā Paṭipadā",cat:"मूल अवधारणाएँ",
+  body:`<p><b>मध्यम मार्ग</b> अति भोग-विलास और अति आत्म-पीड़न — इन दो चरम प्रवृत्तियों के बीच का संतुलित मार्ग है। <a data-nav="dhammacakka">प्रथम उपदेश</a> में बुद्ध ने इसे <a data-nav="eightfold">अष्टांगिक मार्ग</a> के रूप में प्रस्तुत किया।</p>`,see:["eightfold","dhammacakka"]},
+
+paticcasamuppada:{title:"प्रतीत्यसमुत्पाद",pali:"Paṭiccasamuppāda",cat:"मूल अवधारणाएँ",
+  body:`<p><b>प्रतीत्यसमुत्पाद</b> ("सापेक्ष उत्पत्ति") यह सिद्धान्त है कि सभी घटनाएँ कारणों और स्थितियों पर निर्भर होकर उत्पन्न होती हैं — "इसके होने पर वह होता है।" इसे प्रायः बारह अंगों (अविद्या से लेकर जरा-मरण तक) की श्रृंखला के रूप में समझाया जाता है, जो दुःख के उत्पन्न और निरुद्ध होने की प्रक्रिया दर्शाती है।</p>`,see:["fourtruths","kamma","anatta"]},
+
+khandha:{title:"पंचस्कन्ध",pali:"Pañcakkhandha",cat:"मूल अवधारणाएँ",
+  body:`<p><b>पंचस्कन्ध</b> वे पाँच समूह हैं जिनमें अनुभव को विश्लेषित किया जाता है:</p>
+  <ul>
+    <li><b>रूप</b> — भौतिक/शारीरिक पक्ष</li>
+    <li><b>वेदना</b> — संवेदना (सुख/दुख/तटस्थ)</li>
+    <li><b>संज्ञा (सञ्ञा)</b> — पहचान</li>
+    <li><b>संस्कार (सङ्खार)</b> — मानसिक प्रवृत्तियाँ</li>
+    <li><b>विज्ञान (विञ्ञाण)</b> — चेतना</li>
+  </ul>
+  <p><a data-nav="anatta">अनात्मा</a> की शिक्षा कहती है कि इनमें से किसी में भी स्थायी "मैं" नहीं है।</p>`,see:["anatta","tilakkhana"]},
+
+tilakkhana:{title:"त्रिलक्षण",pali:"Tilakkhaṇa",cat:"मूल अवधारणाएँ",
+  body:`<p><b>त्रिलक्षण</b> सभी संस्कृत (कारणजन्य) धर्मों के तीन सार्वभौमिक लक्षण हैं:</p>
+  <ul>
+    <li><b>अनिच्च</b> — अनित्यता, निरंतर परिवर्तन।</li>
+    <li><b>दुक्ख</b> — असंतोषजनकता।</li>
+    <li><b>अनत्ता</b> — <a data-nav="anatta">अनात्मता</a>, स्थायी सार का अभाव।</li>
+  </ul>
+  <p>इन तीनों के प्रति अंतर्दृष्टि <a data-nav="vipassana">विपश्यना</a> साधना का केंद्र है।</p>`,see:["anatta","vipassana","khandha"]},
+
+anatta:{title:"अनात्मा (अनत्ता)",pali:"Anattā",cat:"मूल अवधारणाएँ",
+  body:`<p><b>अनात्मा</b> यह शिक्षा है कि किसी भी घटना में स्थायी, स्वतंत्र, नियंत्रणकारी "आत्मा" या सार नहीं है। <a data-nav="khandha">पंचस्कन्ध</a> परिवर्तनशील और सापेक्ष हैं, अतः उन्हें "मैं" या "मेरा" मानना दुःख का कारण बनता है। यह बौद्ध दर्शन की विशिष्ट पहचान मानी जाती है।</p>`,see:["khandha","tilakkhana","anattalakkhana"]},
+
+nibbana:{title:"निर्वाण (निब्बान)",pali:"Nibbāna",cat:"मूल अवधारणाएँ",
+  body:`<p><b>निर्वाण</b> तृष्णा, द्वेष और मोह के पूर्ण क्षय से प्राप्त परम शांति एवं दुःख से मुक्ति की अवस्था है। यह बौद्ध साधना का अंतिम लक्ष्य है। त्रिपिटक में इसे संस्कृत धर्मों से परे, अजन्मा और अमृत बताया गया है।</p>`,see:["fourtruths","eightfold"]},
+
+kamma:{title:"कर्म (कम्म)",pali:"Kamma",cat:"मूल अवधारणाएँ",
+  body:`<p><b>कर्म</b> से तात्पर्य सचेत इच्छा से किए गए कार्यों से है, जो अपने अनुरूप फल (विपाक) उत्पन्न करते हैं। बौद्ध दृष्टि में कर्म का केंद्र <b>चेतना</b> (इच्छा) है — "मैं कर्म को चेतना कहता हूँ।" यह <a data-nav="paticcasamuppada">प्रतीत्यसमुत्पाद</a> की व्यापक कार्य-कारण दृष्टि से जुड़ा है।</p>`,see:["paticcasamuppada","fourtruths"]},
+
+paramita:{title:"पारमिता",pali:"Pāramī",cat:"मूल अवधारणाएँ",
+  body:`<p><b>पारमिता</b> (पालि: पारमी) वे उत्कृष्ट गुण हैं जिन्हें बोधि की ओर बढ़ने वाला व्यक्ति विकसित करता है। थेरवाद परम्परा में प्रायः दस पारमी गिनाई जाती हैं — दान, शील, नैष्क्रम्य, प्रज्ञा, वीर्य, क्षान्ति, सत्य, अधिष्ठान, मैत्री और उपेक्षा। <a data-nav="jataka">जातक कथाओं</a> में इन्हीं का अभ्यास दर्शाया जाता है।</p>`,see:["jataka","brahmavihara"]},
+
+brahmavihara:{title:"ब्रह्मविहार",pali:"Brahmavihāra",cat:"मूल अवधारणाएँ",
+  body:`<p><b>ब्रह्मविहार</b> ("श्रेष्ठ निवास") चार उदात्त मानसिक अवस्थाएँ हैं जिन्हें ध्यान द्वारा विकसित किया जाता है:</p>
+  <ul>
+    <li><b>मैत्री (मेत्ता)</b> — सभी के प्रति प्रेम।</li>
+    <li><b>करुणा</b> — दुःखियों के प्रति सहानुभूति।</li>
+    <li><b>मुदिता</b> — दूसरों के सुख में प्रसन्नता।</li>
+    <li><b>उपेक्षा</b> — समता एवं संतुलन।</li>
+  </ul>`,see:["karaniyametta","paramita"]},
+
+vipassana:{title:"विपश्यना",pali:"Vipassanā",cat:"मूल अवधारणाएँ",
+  body:`<p><b>विपश्यना</b> ("अंतर्दृष्टि") वह साधना है जिसमें अनुभव के <a data-nav="tilakkhana">त्रिलक्षण</a> — अनित्यता, दुःख और अनात्मता — को प्रत्यक्ष रूप से देखा जाता है। इसे प्रायः समथ (शमथ/एकाग्रता) साधना के साथ पूरक रूप में विकसित किया जाता है। <a data-nav="satipatthana">सतिपट्ठान</a> इसका आधार-सूत्र है।</p>`,see:["satipatthana","tilakkhana"]},
+
+/* ---- व्यक्ति ---- */
+buddha:{title:"बुद्ध (गौतम)",pali:"Buddha",cat:"व्यक्ति",
+  info:{"अर्थ":"जागृत/बोधि प्राप्त","परम्परागत उपाधि":"शाक्यमुनि, तथागत"},
+  body:`<p><b>बुद्ध</b> ("जागृत") उस व्यक्ति की उपाधि है जिसने स्वयं बोधि प्राप्त की और धर्म का उपदेश दिया। थेरवाद परम्परा में गौतम बुद्ध की शिक्षाएँ त्रिपिटक का मूल आधार हैं। उनके प्रथम उपदेश (<a data-nav="dhammacakka">धम्मचक्कप्पवत्तन</a>) से लेकर <a data-nav="mahaparinibbana">महापरिनिर्वाण</a> तक की यात्रा सुत्तों में वर्णित है।</p>`,see:["dhammacakka","sariputta","ananda"]},
+
+sariputta:{title:"सारिपुत्त",pali:"Sāriputta",cat:"व्यक्ति",
+  body:`<p><b>सारिपुत्त</b> बुद्ध के दो प्रमुख शिष्यों में से एक थे, जो प्रज्ञा (बुद्धिमत्ता) में अग्रणी माने जाते हैं। परम्परा उन्हें अभिधम्म-पद्धति के विस्तार से भी जोड़ती है। अनेक सुत्तों में वे स्वयं शिक्षक की भूमिका में दिखाई देते हैं।</p>`,see:["moggallana","buddha","abhidhamma"]},
+
+moggallana:{title:"महामोग्गल्लान",pali:"Mahāmoggallāna",cat:"व्यक्ति",
+  body:`<p><b>महामोग्गल्लान</b> बुद्ध के दूसरे प्रमुख शिष्य थे, जो ऋद्धि (योगशक्ति) में अग्रणी माने जाते हैं। <a data-nav="sariputta">सारिपुत्त</a> और वे प्रायः साथ उल्लेखित होते हैं।</p>`,see:["sariputta","buddha"]},
+
+ananda:{title:"आनन्द",pali:"Ānanda",cat:"व्यक्ति",
+  body:`<p><b>आनन्द</b> बुद्ध के निकटतम सेवक और साथी थे। स्मरण-शक्ति में असाधारण होने के कारण परम्परा के अनुसार <a data-nav="councils">प्रथम संगीति</a> में उन्होंने सुत्तों का पाठ किया, जिससे सुत्त पिटक का संकलन सम्भव हुआ। इसी से अनेक सुत्तों का आरंभ "ऐसा मैंने सुना" वाक्यांश से होता है।</p>`,see:["councils","sutta","buddha"]},
+
+buddhaghosa:{title:"आचार्य बुद्धघोष",pali:"Buddhaghosa",cat:"व्यक्ति",
+  body:`<p><b>बुद्धघोष</b> पाँचवीं शताब्दी के प्रसिद्ध आचार्य थे, जिन्होंने श्रीलंका में त्रिपिटक पर अनेक <a data-nav="atthakatha">अट्ठकथाओं</a> का संकलन किया और <b>विसुद्धिमग्ग</b> ("शुद्धि का मार्ग") जैसा व्यवस्थित साधना-ग्रन्थ रचा। थेरवाद व्याख्या-परम्परा में उनका स्थान अत्यंत महत्वपूर्ण है।</p>`,see:["atthakatha","theravada"]},
+
+sangha:{title:"संघ",pali:"Saṅgha",cat:"व्यक्ति",
+  body:`<p><b>संघ</b> बुद्ध के अनुयायियों का समुदाय है — विशेषतः भिक्षु एवं भिक्षुणियों का संगठित समुदाय, जिसका जीवन <a data-nav="vinaya">विनय</a> द्वारा नियमित होता है। बुद्ध, धर्म और संघ को मिलाकर "त्रिरत्न" कहा जाता है।</p>`,see:["vinaya","ratana"]},
+
+/* ---- समुदाय पृष्ठ ---- */
+recent:{title:"हाल में हुए बदलाव",cat:"सिंहावलोकन",
+  body:`<p>इस डेमो विकि में हाल के (नमूना) सम्पादन:</p>
+  <ul>
+    <li><a data-nav="patthana">पट्ठान</a> — 24 पच्चय अनुभाग विस्तारित</li>
+    <li><a data-nav="dhammapada">धम्मपद</a> — वग्ग विवरण जोड़ा गया</li>
+    <li><a data-nav="brahmavihara">ब्रह्मविहार</a> — नया लेख</li>
+    <li><a data-nav="councils">बौद्ध संगीतियाँ</a> — सूची अद्यतन</li>
+    <li><a data-nav="jataka">जातक</a> — पारमिता से लिंक जोड़ा गया</li>
+  </ul>`},
+
+samuday:{title:"समुदाय, योगदान एवं सहायता",cat:"सिंहावलोकन",
+  body:`<p>यह एक स्वतंत्र शैक्षिक परियोजना है। सभी लेख मौलिक हिन्दी सारांश हैं और किसी बाहरी विकि से प्रतिलिपि नहीं किए गए।</p>
+  <h3>शैली मार्गदर्शिका</h3>
+  <ul>
+    <li>पालि शब्दों को देवनागरी में लिखें, कोष्ठक में रोमन लिप्यन्तरण दें।</li>
+    <li>प्रत्येक लेख आरम्भ में एक-पंक्ति परिभाषा से शुरू हो।</li>
+    <li>सम्बन्धित लेखों को आपस में लिंक करें।</li>
+  </ul>
+  <h3>सहायता</h3>
+  <p>ऊपर के <b>खोज</b> बॉक्स से कोई भी लेख ढूँढ़ें, या <a data-nav="index">सूचकांक</a> से श्रेणीवार सभी लेख देखें।</p>`}
 };
 
-/* ---------------- राउटर ---------------- */
-const content = document.getElementById('content');
+/* ================= राउटर ================= */
+const content=document.getElementById('content');
 
 function homeView(){
   return `
   <section class="hero">
     <h1>त्रिपिटक विकि में आपका स्वागत है</h1>
-    <p>यह थेरवाद बौद्ध परम्परा के पालि सिद्धान्त — <b>त्रिपिटक</b> ("तीन पिटारियाँ") — को समर्पित एक सहयोगात्मक ज्ञानकोश है। विनय, सुत्त और अभिधम्म पिटकों के लेख यहाँ संकलित हैं।</p>
+    <p>यह थेरवाद बौद्ध परम्परा के पालि सिद्धान्त — <b>त्रिपिटक</b> ("तीन पिटारियाँ") — को समर्पित एक हिन्दी ज्ञानकोश है। सभी लेख मौलिक रूप से लिखे गए सारांश हैं।</p>
     <div class="stats">
-      <div><b>1,842</b><small>लेख</small></div>
+      <div><b>${Object.keys(A).length}</b><small>लेख</small></div>
       <div><b>3</b><small>पिटक</small></div>
-      <div><b>84,000</b><small>धर्मस्कन्ध</small></div>
+      <div><b>5</b><small>निकाय</small></div>
       <div><b id="stat-active">37</b><small>सक्रिय सदस्य</small></div>
     </div>
   </section>
 
-  <section class="card">
-    <h2>📜 त्रिपिटक की तीन पिटारियाँ</h2>
-    <div class="body">
-      <div class="pitakas">
-        ${pitakaCard('vinaya','⚖️','भिक्षु-भिक्षुणी संघ के आचार-नियम।',['vinaya'])}
-        ${pitakaCard('sutta','🪷','बुद्ध के प्रवचन, पाँच निकायों में।',['digha','majjhima','samyutta','anguttara','khuddaka'])}
-        ${pitakaCard('abhidhamma','🧠','परमार्थ धर्मों का दार्शनिक विश्लेषण।',['abhidhamma'])}
-      </div>
-      <p class="section-note">पालि "पिटक" = पिटारी/टोकरी। तीनों मिलकर <em>ति-पिटक</em> (त्रिपिटक) कहलाती हैं। किसी भी कार्ड या लिंक पर क्लिक करें।</p>
+  <section class="card"><h2>📜 त्रिपिटक की तीन पिटारियाँ</h2><div class="body">
+    <div class="pitakas">
+      ${pitakaCard('vinaya','⚖️','भिक्षु-भिक्षुणी संघ के आचार-नियम।',['suttavibhanga','khandhaka','parivara'])}
+      ${pitakaCard('sutta','🪷','बुद्ध के प्रवचन, पाँच निकायों में।',['digha','majjhima','samyutta','anguttara','khuddaka'])}
+      ${pitakaCard('abhidhamma','🧠','परमार्थ धर्मों का दार्शनिक विश्लेषण।',['dhammasangani','vibhanga','patthana'])}
     </div>
-  </section>
+    <p class="section-note">पालि "पिटक" = पिटारी/टोकरी। तीनों मिलकर <em>ति-पिटक</em> (त्रिपिटक) कहलाती हैं। किसी भी लिंक पर क्लिक करें।</p>
+  </div></section>
 
-  <section class="card">
-    <h2>⭐ विशेष लेख</h2>
-    <div class="body">
-      <div class="featured">
-        <div class="thumb" onclick="go('dhammacakka')" style="cursor:pointer">🪷</div>
-        <div>
-          <h3 style="margin:0 0 6px;color:var(--header);">धम्मचक्कप्पवत्तन सुत्त</h3>
-          <p>बुद्ध का पहला उपदेश, जो उन्होंने सारनाथ में पाँच भिक्षुओं को दिया। इसमें <b>चार आर्य सत्य</b> और <b>मध्यम मार्ग</b> की शिक्षा है।</p>
-          <a onclick="go('dhammacakka')">पूरा लेख पढ़ें →</a>
-        </div>
+  <section class="card"><h2>⭐ विशेष लेख</h2><div class="body">
+    <div class="featured">
+      <div class="thumb" onclick="go('dhammacakka')">🪷</div>
+      <div>
+        <h3 style="margin:0 0 6px;color:var(--header);">धम्मचक्कप्पवत्तन सुत्त</h3>
+        <p>बुद्ध का पहला उपदेश, जो उन्होंने सारनाथ में पाँच भिक्षुओं को दिया। इसमें <b>चार आर्य सत्य</b> और <b>मध्यम मार्ग</b> की शिक्षा है।</p>
+        <a onclick="go('dhammacakka')">पूरा लेख पढ़ें →</a>
       </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="card">
-    <h2>🗓️ आज का विचार</h2>
-    <div class="body">
-      <div class="quote">"मन सभी धर्मों का अग्रगामी है, मन ही प्रधान है, सब कुछ मन से ही निर्मित होता है।"
-      <span class="src">— <a data-nav="dhammapada">धम्मपद</a>, यमक वग्ग (श्लोक 1)</span></div>
-    </div>
-  </section>
+  <section class="card"><h2>🗓️ आज का विचार</h2><div class="body">
+    <div class="quote">सभी अवस्थाओं में मन ही अग्रगामी और प्रधान है — शुभ या अशुभ, सब मन से ही आरम्भ होता है।
+    <span class="src">— <a data-nav="dhammapada">धम्मपद</a>, यमक वग्ग (भावानुवाद)</span></div>
+  </div></section>
 
-  <section class="card">
-    <h2>📚 विषय के अनुसार खोजें</h2>
-    <div class="body">
-      <div class="taglist">
-        <a data-nav="dhammacakka">चार आर्य सत्य</a>
-        <a data-nav="dhammacakka">अष्टांगिक मार्ग</a>
-        <a data-nav="satipatthana">सतिपट्ठान</a>
-        <a data-nav="dhammapada">धम्मपद</a>
-        <a data-nav="khuddaka">जातक कथाएँ</a>
-        <a data-nav="abhidhamma">अभिधम्म</a>
-        <a data-nav="theravada">थेरवाद</a>
-        <a data-nav="pali">पालि भाषा</a>
-      </div>
+  <section class="card"><h2>📚 मूल अवधारणाएँ</h2><div class="body">
+    <div class="taglist">
+      <a data-nav="fourtruths">चार आर्य सत्य</a>
+      <a data-nav="eightfold">अष्टांगिक मार्ग</a>
+      <a data-nav="paticcasamuppada">प्रतीत्यसमुत्पाद</a>
+      <a data-nav="khandha">पंचस्कन्ध</a>
+      <a data-nav="tilakkhana">त्रिलक्षण</a>
+      <a data-nav="nibbana">निर्वाण</a>
+      <a data-nav="kamma">कर्म</a>
+      <a data-nav="paramita">पारमिता</a>
+      <a data-nav="vipassana">विपश्यना</a>
+      <a data-nav="brahmavihara">ब्रह्मविहार</a>
     </div>
-  </section>`;
+    <p class="section-note" style="margin-top:12px"><a data-nav="index">📖 सभी ${Object.keys(A).length} लेखों का सूचकांक देखें →</a></p>
+  </div></section>`;
 }
 
 function pitakaCard(id,icon,desc,links){
   const a=A[id];
   const items=links.map(l=>`<li><a data-nav="${l}">${A[l].title}</a></li>`).join('');
   return `<div class="pitaka">
-    <div class="top" onclick="go('${id}')">
-      <div class="icon">${icon}</div>
-      <h3>${a.title}</h3>
-      <div class="pali">${a.pali}</div>
-    </div>
+    <div class="top" onclick="go('${id}')"><div class="icon">${icon}</div><h3>${a.title}</h3><div class="pali">${a.pali||''}</div></div>
     <div class="top-inner">${desc}<ul>${items}</ul></div>
   </div>`;
 }
@@ -442,67 +595,71 @@ function articleView(id){
   }
   let crumb=`<a data-nav="home">मुख्य पृष्ठ</a>`;
   if(a.parent){crumb+=` › <a data-nav="${a.parent}">${A[a.parent].title}</a>`;}
-  crumb+=` › ${a.title}`;
+  else if(a.cat){crumb+=` › ${a.cat}`;}
+  crumb+=` › <b>${a.title}</b>`;
+  let see='';
+  if(a.see&&a.see.length){
+    see=`<div class="seealso"><b>यह भी देखें:</b> `+a.see.filter(s=>A[s]).map(s=>`<a data-nav="${s}">${A[s].title}</a>`).join(' · ')+`</div>`;
+  }
   return `<div class="crumb">${crumb}</div>
     <article class="article">
       ${ib}
       <h1 class="at">${a.title}</h1>
       ${a.pali?`<p class="pali-sub">${a.pali}</p>`:''}
       ${a.body}
+      ${see}
       <a class="backlink" data-nav="home">← मुख्य पृष्ठ पर लौटें</a>
     </article>`;
 }
 
+function indexView(){
+  let html=`<div class="crumb"><a data-nav="home">मुख्य पृष्ठ</a> › सूचकांक</div>
+    <section class="card"><h2>📖 सभी लेख — श्रेणीवार सूचकांक</h2><div class="body">`;
+  CATS.forEach(cat=>{
+    const ids=Object.keys(A).filter(id=>A[id].cat===cat).sort((x,y)=>A[x].title.localeCompare(A[y].title,'hi'));
+    if(!ids.length)return;
+    html+=`<div class="index-cat"><h3>${cat} <span style="color:var(--muted);font-weight:400;font-size:13px">(${ids.length})</span></h3><div class="links">`+
+      ids.map(id=>`<a data-nav="${id}">${A[id].title}</a>`).join('')+`</div></div>`;
+  });
+  html+=`</div></section>`;
+  return html;
+}
+
 function searchView(q){
   const term=q.toLowerCase();
-  const hits=Object.entries(A).filter(([id,a])=>{
-    return a.title.toLowerCase().includes(term) ||
-           (a.pali||'').toLowerCase().includes(term) ||
-           a.body.toLowerCase().includes(term);
-  });
+  const hits=Object.entries(A).filter(([id,a])=>
+    a.title.toLowerCase().includes(term)||(a.pali||'').toLowerCase().includes(term)||a.body.toLowerCase().includes(term));
   let list;
   if(hits.length){
     list=`<ul class="results">`+hits.map(([id,a])=>{
-      const plain=a.body.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,110);
+      const plain=a.body.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,120);
       return `<li><a data-nav="${id}"><b>${a.title}</b></a> <span class="snippet">— ${plain}…</span></li>`;
     }).join('')+`</ul>`;
-  } else {
-    list=`<p class="no-res">"<b>${q}</b>" के लिए कोई लेख नहीं मिला। कोशिश करें: धम्मपद, विनय, अभिधम्म, सतिपट्ठान।</p>`;
+  }else{
+    list=`<p class="no-res">"<b>${q}</b>" के लिए कोई लेख नहीं मिला। कोशिश करें: धम्मपद, विनय, निर्वाण, सतिपट्ठान, कर्म।</p>`;
   }
   return `<div class="crumb"><a data-nav="home">मुख्य पृष्ठ</a> › खोज</div>
     <section class="card"><h2>🔍 खोज परिणाम: "${q}"</h2><div class="body">${list}</div></section>`;
 }
 
-function render(html){content.innerHTML=html;window.scrollTo(0,0);}
+function render(html){content.innerHTML=html;try{window.scrollTo(0,0);}catch(e){}}
 
 function go(id){
-  if(!id || (id!=='home' && !A[id])){id='home';}
-  try{history.replaceState(null,'','#'+id);}catch(e){/* sandboxed iframe */}
+  if(!id||(id!=='home'&&id!=='index'&&!A[id]))id='home';
+  try{history.replaceState(null,'','#'+id);}catch(e){}
   setActive(id);
   if(id==='home'){render(homeView());startTicker();return;}
+  if(id==='index'){render(indexView());return;}
   render(articleView(id));
 }
 
 function setActive(id){
-  document.querySelectorAll('#navlist a').forEach(el=>{
-    el.classList.toggle('active', el.dataset.nav===id);
-  });
+  document.querySelectorAll('#navlist a').forEach(el=>el.classList.toggle('active',el.dataset.nav===id));
 }
 
-function doSearch(e){
-  e.preventDefault();
-  const q=document.getElementById('q').value.trim();
-  if(!q)return false;
-  render(searchView(q));
-  return false;
-}
+function doSearch(e){e.preventDefault();const q=document.getElementById('q').value.trim();if(!q)return false;setActive('');render(searchView(q));return false;}
+function randomPage(){const ids=Object.keys(A);go(ids[Math.floor(Math.random()*ids.length)]);}
 
-function randomPage(){
-  const ids=Object.keys(A);
-  go(ids[Math.floor(Math.random()*ids.length)]);
-}
-
-/* delegated clicks for any [data-nav] */
 document.addEventListener('click',function(e){
   const a=e.target.closest('[data-nav]');
   if(a){e.preventDefault();go(a.dataset.nav);}
@@ -511,16 +668,14 @@ document.addEventListener('click',function(e){
 let tickTimer=null;
 function startTicker(){
   clearInterval(tickTimer);
-  const el=document.getElementById('stat-active');
-  if(!el)return;
+  const el=document.getElementById('stat-active');if(!el)return;
   tickTimer=setInterval(()=>{
-    if(!document.getElementById('stat-active')){clearInterval(tickTimer);return;}
-    const n=parseInt(el.textContent,10);
-    el.textContent=Math.max(30,n+(Math.random()<0.5?-1:1));
+    const e2=document.getElementById('stat-active');
+    if(!e2){clearInterval(tickTimer);return;}
+    const n=parseInt(e2.textContent,10);e2.textContent=Math.max(30,n+(Math.random()<0.5?-1:1));
   },4000);
 }
 
-/* initial route */
 let start='home';
 try{start=(location.hash||'#home').slice(1)||'home';}catch(e){}
 go(start);
