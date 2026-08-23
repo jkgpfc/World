@@ -476,11 +476,11 @@ function searchView(q){
 function render(html){content.innerHTML=html;window.scrollTo(0,0);}
 
 function go(id){
-  history.replaceState(null,'',location.pathname+'#'+id);
+  if(!id || (id!=='home' && !A[id])){id='home';}
+  try{history.replaceState(null,'','#'+id);}catch(e){/* sandboxed iframe */}
   setActive(id);
   if(id==='home'){render(homeView());startTicker();return;}
-  if(A[id]){render(articleView(id));}
-  else{render(homeView());}
+  render(articleView(id));
 }
 
 function setActive(id){
@@ -521,8 +521,9 @@ function startTicker(){
 }
 
 /* initial route */
-const start=(location.hash||'#home').slice(1);
-go(A[start]||start==='home'?start:'home');
+let start='home';
+try{start=(location.hash||'#home').slice(1)||'home';}catch(e){}
+go(start);
 </script>
 </body>
 </html>
